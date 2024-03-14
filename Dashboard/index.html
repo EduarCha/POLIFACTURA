@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KED</title>
+    <title>FE_POS</title>
     <link rel="stylesheet" href="css/styles.css">
     <!-- Box icons CDN Link https://boxicons.com-->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
@@ -68,18 +68,13 @@
             Ajustes
         </button>
 
-        <!-- 
-       pie de pagina y Ajustes de usuario principal 
-    -->
-        <footer class="footer">
-            <div class="menu-footer">
-                <button class="btn-footer" onclick="perfilUser()" data-bs-toggle="modal" data-bs-target="#registrarse">
-                    <i class='bx bxs-user-circle'></i>
-                    Perfil
-                </button>
+        <!-- perfil-->
 
-            </div>
-        </footer>
+        <button class="btn-sidebar" onclick="perfilUser()" data-bs-toggle="modal" data-bs-target="#registrarse">
+            <i class='bx bxs-user-circle'></i>
+            Perfil
+        </button>
+
 
     </div>
 
@@ -108,12 +103,12 @@
                             <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                                 <button class="btn" type="button">
                                     <i class='bx bxs-cart'></i>0
-                                </button>        
-                               
+                                </button>
+
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">                      
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button class="btn btn-outline-danger " type="button">
                                     <i class='bx bxs-trash'></i>
                                 </button>
@@ -341,7 +336,7 @@
                             </div>
 
                             <div class="col-5">
-                                <p class="1h-1 text-start">Producto x</p>
+                                <p class="1h-1 text-start">Producto x </p>
                             </div>
 
                             <div class="col-5">
@@ -555,16 +550,17 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label for="inputState" class="form-label">Soy</label>
-                            <select id="inputState" class="form-select">
-                                <option selected>Cliente</option>
-                                <option>Proveedor</option>
+                            <label for="inputState" class="form-label">Tipo Doc</label>
+                            <select id="inputState" class="form-select" disabled>
+                                <option selected>C.C.</option>
+                                <option>NIT</option>
+                                <option>C.E.</option>
                             </select>
                         </div>
 
                         <div class="col-md-4">
-                            <label for="inputCity" class="form-label">Ingresa tu ciudad</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Ciudad">
+                            <label for="inputIdentity" class="form-label">Identificación</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Número" readonly>
                         </div>
                         <div class="col-md-4">
                             <label for="inputState" class="form-label">Genero</label>
