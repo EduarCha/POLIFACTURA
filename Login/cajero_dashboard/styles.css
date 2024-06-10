@@ -36,13 +36,15 @@ body {
 }
 
 .menu li {
-    padding: 10px 0;
+    padding: 10px;
     cursor: pointer;
 }
 
 .menu .active {
     color: var(--color-primario);
     font-weight: bold;
+    background-color: var(--color-fondo);
+    border-radius: 10px;
 }
 
 .main-content {
@@ -95,6 +97,7 @@ body {
 
 .invoice-summary {
     width: 20%;
+    height: 96vh;
     padding: 20px;
     background-color: #f0f8ff;
     display: flex;
@@ -112,10 +115,14 @@ body {
     color: var(--color-primario);
 }
 
+.cash-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
 .cash-buttons button {
-    display: block;
     width: 100%;
-    margin-bottom: 10px;
     padding: 10px;
     background-color: var(--color-primario);
     border: none;
@@ -123,6 +130,14 @@ body {
     color: var(--color-fondo);
     border-radius: 5px;
 }
+
+/* Responsivo: Para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .cash-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .save-button {
     padding: 10px;
