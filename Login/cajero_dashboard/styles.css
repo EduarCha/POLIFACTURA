@@ -1,7 +1,7 @@
 :root {
     --color-primario: #00b393;
     --color-secundario: #005073;
-    --color-resaltado: #ff7f50;
+    --color-resaltado: #f44336;
     --color-fondo: #ffffff;
     --color-texto: #333333;
     --color-acciones: #32cd32;
@@ -18,16 +18,25 @@ body {
     display: flex;
 }
 
+/* SIDEBAR styles */
 .sidebar {
     width: 20%;
-    background-color: var(--color-primario);
+    height: 96vh;
+    background-color: var(--color-secundario);
     padding: 20px;
     color: var(--color-fondo);
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .logo img {
-    width: 10%;
-    height: auto;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .menu ul {
@@ -41,17 +50,27 @@ body {
 }
 
 .menu .active {
-    color: var(--color-primario);
+    color: white;
     font-weight: bold;
-    background-color: var(--color-fondo);
+    background-color: var(--color-primario);
     border-radius: 10px;
 }
+
 
 .main-content {
     width: 60%;
     padding: 20px;
     background-color: var(--color-fondo);
+    height: 96vh; /* Ensure it takes the full viewport height */
+    overflow-y: auto; /* Add vertical scrolling */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+
+.main-content::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
 
 .header {
     display: flex;
@@ -77,6 +96,7 @@ body {
     cursor: pointer;
 }
 
+/* PRODUCTOS styles */
 .products {
     display: flex;
     gap: 20px;
@@ -95,6 +115,7 @@ body {
     height: auto;
 }
 
+/* sidebar summary styles */
 .invoice-summary {
     width: 20%;
     height: 96vh;
@@ -147,3 +168,60 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editButton {
+    background-color: var(--color-acciones);
+    color: white;
+}
+
+#logoutButton {
+    background-color: var(--color-resaltado);
+    color: white;
+}
+
