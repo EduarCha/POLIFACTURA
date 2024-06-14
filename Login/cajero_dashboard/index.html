@@ -79,17 +79,26 @@
                         <p>Producto 1</p>
                         <p>S/. 10.000.00</p>
                     </div>
-                    
+
                     <!-- Más productos aquí -->
                 </section>
 
+
+                <!-- Carrito invoice-summary-->
                 <aside class="invoice-summary">
                     <div class="invoice-header">
                         <h2>Factura 1</h2>
                     </div>
-                    <div class="invoice-product">
-                        <p>Producto 1</p>
-                        <p>S/. 10.000</p>
+                    <div class="invoice-products-container">
+                        <div class="invoice-product">
+                            <p>Producto 1</p>
+                            <p>S/. 10.000</p>
+                        </div>
+                        <div class="invoice-product">
+                            <p>Producto 2</p>
+                            <p>S/. 10.000</p>
+                        </div>
+                        <!-- Más productos aquí -->
                     </div>
                     <div class="invoice-total">
                         <p>TOTAL</p>
@@ -97,19 +106,24 @@
                     </div>
                     <div class="payment">
                         <p>EFECTIVO</p>
+                        <div class="cash-input">
+                            <input type="number" placeholder="0.00">
+                        </div>
                         <div class="cash-buttons">
-                            <button>+ 2.000</button>
-                            <button>+ 5.000</button>
-                            <button>+ 10.000</button>
-                            <button>+ 20.000</button>
-                            <button>+ 50.000</button>
-                            <button>+ 100.000</button>
+                            <button onclick="addCash(2000)">+ 2.000</button>
+                            <button onclick="addCash(5000)">+ 5.000</button>
+                            <button onclick="addCash(10000)">+ 10.000</button>
+                            <button onclick="addCash(20000)">+ 20.000</button>
+                            <button onclick="addCash(50000)">+ 50.000</button>
+                            <button onclick="addCash(100000)">+ 100.000</button>
                         </div>
                         <p>CAMBIO</p>
-                        <p>S/. 30.000</p>
+                        <p id="change">S/. 0.00</p>
                     </div>
                     <button class="save-button">GRABAR</button>
                 </aside>
+
+
             </section>
         </main>
 

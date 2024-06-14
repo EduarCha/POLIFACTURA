@@ -25,3 +25,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+let totalAmount = 20000; // Ejemplo de total, debería calcular esto dinámicamente.
+let cashReceived = 0;
+
+function addCash(amount) {
+    cashReceived += amount;
+    document.querySelector('.cash-input input').value = cashReceived;
+    calculateChange();
+}
+
+document.querySelector('.cash-input input').addEventListener('input', function() {
+    cashReceived = parseFloat(this.value) || 0;
+    calculateChange();
+});
+
+function calculateChange() {
+    let change = cashReceived - totalAmount;
+    document.getElementById('change').textContent = `S/. ${change.toFixed(2)}`;
+}
+
