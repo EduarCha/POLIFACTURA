@@ -27,17 +27,69 @@
             </nav>
         </aside>
 
-        <!-- Modal -->
+        <!-- Modal cuenta empresa-->
         <div id="accountModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Información de la Cuenta</h2>
+                <form id="accountForm">
+                    <label for="empresaNombre">Nombre:</label>
+                    <input type="text" id="empresaNombre" name="empresaNombre">
+
+                    <label for="empresaDireccion">Dirección:</label>
+                    <input type="text" id="empresaDireccion" name="empresaDireccion">
+
+                    <label for="empresaCorreo">Correo:</label>
+                    <input type="email" id="empresaCorreo" name="empresaCorreo">
+
+                    <label for="empresaTelefono">Teléfono:</label>
+                    <input type="text" id="empresaTelefono" name="empresaTelefono">
+
+                    <div class="content-buttons">
+                        <button type="submit" id="uPButton_CTA">Actualizar</button>
+                        <button type="button" id="cancelButton_CTA">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- Modal user-->
+        <div id="userModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Información del usuario</h2>
                 <p>Usuario: Juan Pérez</p>
                 <p>Dirección: Calle Falsa 123</p>
                 <p>Correo: juan.perez@example.com</p>
                 <p>Teléfono: 123-456-7890</p>
-                <button id="editButton">Editar</button>
-                <button id="logoutButton">Cerrar Sesión</button>
+                <button type="submit" id="editButton">Actualizar</button>
+                <button type="button" id="logoutButton">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <!-- Modal Producto -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close-product">&times;</span>
+                <h2>Agregar Producto</h2>
+                <form id="addProductForm">
+                    <label for="productName">Nombre del Producto:</label>
+                    <input type="text" id="productName" name="productName" required>
+
+                    <label for="productPrice">Precio del Producto:</label>
+                    <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+
+                    <label for="productDescription">Descripción del Producto:</label>
+                    <textarea id="productDescription" name="productDescription" rows="3" required></textarea>
+
+                    <div class="content-buttons">
+                        <button type="submit">Agregar</button>
+                        <button type="button" id="cancelButton">Cancelar</button>
+                    </div>
+
+                </form>
             </div>
         </div>
 
@@ -50,37 +102,74 @@
                     <input type="text" placeholder="Buscar productos">
                 </div>
                 <div class="icons">
-                    <span class="bx bx-barcode"></span>
-                    <span class="bx bx-user"></span>
+                    <span class="bx bx-barcode" id="accountModal"></span>
+                    <span class="bx bxs-message-square-add" id="addProductIcon"></span>
+                    <span class="bx bx-user" id="userAccount"></span>
                 </div>
             </header>
 
             <section class="content">
                 <section class="products">
+
                     <div class="product-card">
-                        <img src="tag-icon.png" alt="Producto 1">
-                        <p>Descripción 1</p>
-                        <p>S/. 10.000,00</p>
+                        <i class='bx bxs-purchase-tag-alt icon'></i>
+                        <div class="description">
+                            <h3>Titulo 1</h3>
+                            <p>Descripción 1</p>
+                        </div>
+                        <div class="price">
+                            <p>S/. 10,000.00</p>
+                        </div>
                     </div>
                     <div class="product-card">
-                        <img src="tag-icon.png" alt="Producto 2">
-                        <p>Descripción 2</p>
-                        <p>S/. 10.000,00</p>
+                        <i class='bx bxs-purchase-tag-alt icon'></i>
+                        <div class="description">
+                            <h3>Titulo 1</h3>
+                            <p>Descripción 1</p>
+                        </div>
+                        <div class="price">
+                            <p>S/. 10,000.00</p>
+                        </div>
                     </div>
                     <div class="product-card">
-                        <img src="tag-icon.png" alt="Producto 3">
-                        <p>Producto 1</p>
-                        <p>S/. 10.000,00</p>
+                        <i class='bx bxs-purchase-tag-alt icon'></i>
+                        <div class="description">
+                            <h3>Titulo 1</h3>
+                            <p>Descripción 1</p>
+                        </div>
+                        <div class="price">
+                            <p>S/. 10,000.00</p>
+                        </div>
                     </div>
                     <div class="product-card">
-                        <img src="tag-icon.png" alt="Producto 4">
-                        <p>Producto 1</p>
-                        <p>S/. 10.000,00</p>
+                        <i class='bx bxs-purchase-tag-alt icon'></i>
+                        <div class="description">
+                            <h3>Titulo 1</h3>
+                            <p>Descripción 1</p>
+                        </div>
+                        <div class="price">
+                            <p>S/. 10,000.00</p>
+                        </div>
                     </div>
                     <div class="product-card">
-                        <img src="tag-icon.png" alt="Producto 5">
-                        <p>Producto 1</p>
-                        <p>S/. 10.000,00</p>
+                        <i class='bx bxs-purchase-tag-alt icon'></i>
+                        <div class="description">
+                            <h3>Titulo 1</h3>
+                            <p>Descripción 1</p>
+                        </div>
+                        <div class="price">
+                            <p>S/. 10,000.00</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <i class='bx bxs-purchase-tag-alt icon'></i>
+                        <div class="description">
+                            <h3>Titulo 1</h3>
+                            <p>Descripción 1</p>
+                        </div>
+                        <div class="price">
+                            <p>S/. 10,000.00</p>
+                        </div>
                     </div>
 
                     <!-- Más productos aquí -->
@@ -115,7 +204,7 @@
                         <p>TOTAL</p>
                         <p id="total_id">S/. 30.000,00</p>
                     </div>
-                    
+
                     <div class="payment">
                         <div class="invoice-total">
                             <p>RECIBIDO</p>
@@ -136,14 +225,14 @@
                             <p>CAMBIO</p>
                             <p id="change">S/. 0.00</p>
                         </div>
-                        
+
                     </div>
                     <button class="save-button" ">GRABAR</button>
                 </aside>
             </section>
         </main>
 
-        <script src="script.js"></script>
+        <script src=" script.js"></script>
     </div>
 </body>
 
