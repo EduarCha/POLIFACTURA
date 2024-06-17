@@ -1,15 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    //empresa
     const menuItems = document.querySelectorAll('.menu-item');
     const logo = document.getElementById('logo');
     const accountModal = document.getElementById('accountModal');
+    const cancelButton_cta = document.getElementById('cancelButton_cta');
+    const actualizarBtn_cta = document.getElementById('actualizarBtn_cta');
+    const span = document.getElementsByClassName('close')[0];
+
     const userModal = document.getElementById('userModal');
     const productModal = document.getElementById('productModal');
-    const span = document.getElementsByClassName('close')[0];
-    const spanUser = document.getElementsByClassName('close')[1]; // Índice ajustado para el segundo elemento con clase 'close'
+    const spanUser = document.getElementsByClassName('close')[1]; 
     const spanProduct = document.getElementsByClassName('close-product')[0];
     const cancelButton = document.getElementById('cancelButton');
     const addProductIcon = document.getElementById('addProductIcon');
     const userAccount = document.getElementById('userAccount');
+
 
     menuItems.forEach(item => {
         item.addEventListener('click', function () {
@@ -27,10 +33,46 @@ document.addEventListener("DOMContentLoaded", function () {
         accountModal.style.display = "none";
     });
 
+    cancelButton_cta.addEventListener('click', function () {
+        accountModal.style.display = "none";
+    });
+
     window.addEventListener('click', function (event) {
         if (event.target == accountModal) {
             accountModal.style.display = "none";
         }
+    });
+
+    // Insertar datos en la tabla empresa
+    actualizarBtn_cta.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('empresaNombre').value;
+        const nit = document.getElementById('empresaNit').value;
+        const direccion = document.getElementById('empresaDireccion').value;
+        const correo = document.getElementById('empresaCorreo').value;
+        const telefono = document.getElementById('empresaTelefono').value;
+
+        fetch('/insertar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nombre, nit, direccion, telefono, correo })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Datos insertados correctamente.');
+            } else {
+                alert('Error al insertar datos: ' + data.message);
+            }
+            accountModal.style.display = "none"; // Cerrar el modal después de insertar
+        })
+        .catch(error => {
+            alert('Error al insertar datos: ' + error.message);
+            console.error('Error:', error);
+        })
     });
 
     //modal add producto
@@ -45,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cancelButton.addEventListener('click', function () {
         productModal.style.display = "none";
     });
+
 
     // Modal user
     userAccount.addEventListener('click', function () {
@@ -63,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     calculateTax();
 });
+
+
 
 
 let totalAmount = 30000; // Ejemplo de total, debería calcular esto dinámicamente.
@@ -115,6 +160,7 @@ db.serialize(() => {
     // Empresa
     db.run(`CREATE TABLE IF NOT EXISTS empresa (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nit TEXT,
         nombre TEXT,
         direccion TEXT,
         telefono TEXT,
