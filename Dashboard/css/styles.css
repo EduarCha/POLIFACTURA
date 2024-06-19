@@ -1,0 +1,225 @@
+/*sidebar Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+body {
+  display: flex;
+  border-radius: 10px;
+  min-width: 800px;
+  align-items: center;
+  padding: 1px;
+  overflow-x: hidden;
+}
+
+/*style sidebar L*/
+.sidebar-L {
+  width: 16%;
+  min-width: 150px;
+  min-height: 99.5vh;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 1px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.sidebar-L .btn-sidebar {
+  width: 94%;
+  min-width: 60px;
+  height: 60px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: black;
+  color: grey;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-sidebar:hover {
+  background-color: transparent;
+  border: 1px solid gray;
+}
+
+.sidebar-L i {
+  color: gray;
+  height: 60px;
+  min-width: 40px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo-container img {
+  width: auto; /* Ajusta el tamaño máximo del logo */
+  height: 60px;
+  border-radius: 10px;
+  cursor: pointer; 
+}
+.file-input-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+/*style container pos*/
+.container-ked-h {
+  display: flex;
+  top: 0%;
+  width: 100%;
+  min-width: 400px;
+  height: 99.5vh;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_fac{
+  height: 86vh;
+  margin: 3px;
+}
+
+
+.his_Scroll{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.header-pos{
+  width: 100%;
+  min-width: 500px;
+  height: 70px;
+  display: flex;
+}
+
+.col-header{
+  width: 70%;
+  min-width: 200px;
+  height: 40px;
+}
+
+.col-header-l{
+  width: 30%;
+  min-width: 300px;
+  height: 40px;
+}
+
+.container-ked-v {
+  top: 0%;
+  width: 100%;
+  min-width: 400px;
+  height: 99.5vh;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-ked-h .productos-pos {
+  width: 70%;
+  min-width: 200px;
+  height: 100%;
+  padding: 2px;
+  border-radius: 10px;
+  margin-right: 2px;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  display: flex;
+  background-color: hsla(212, 32%, 23%, 0.5);
+}
+
+
+.card {
+  width: 12rem; 
+  max-height: 16rem;
+  padding: 5px; 
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+/*style container-pos sidebar R*/
+.container-ked-h .sidebar-R {
+  width: 30%;
+  min-width: 300px;
+  height: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: transparent /*#17202A*/;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-control{
+  width: 60px;
+  justify-content: center;
+  align-content: center;
+  background-color: aliceblue;
+}
+
+/*style footer*/
+.footer {
+  width: 13.5%;
+  min-width: 150px;
+  position: fixed;
+  justify-content: center;
+  bottom: 10px;
+  background-color: transparent;
+}
+
+.footer .menu-footer {
+  width: 100%;
+  display: flex;
+  padding-left: 1px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 1px;
+  background-color: transparent;
+}
+
+.footer .btn-footer {
+  width: max-content;
+  height: 60px;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: hsla(212, 32%, 23%, 0.5);
+  color: grey;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: width 0.5s;
+  /* Añadimos transición para suavizar el cambio de ancho */
+}
+
+.footer .btn-footer i {
+  color: gray;
+  height: 60px;
+  min-width: 40px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.footer .btn-footer h5 {
+  white-space: nowrap;
+  /* Evita que el texto se desborde */
+  margin: 8px;
+  /* Ajusta el espacio entre el icono y el texto */
+}
+
+.btn-footer:hover {
+  background-color: hsla(212, 32%, 23%, 0.5);
+  border: 1px solid gray;
+}
