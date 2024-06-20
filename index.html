@@ -11,36 +11,67 @@
 </head>
 
 <body>
-    
-<!--Login adm-->
+
+    <!--Login adm-->
     <div class="login-container">
 
         <div class="modal-header">
             <img src="img/logoP.png" alt="sistema libro de cuentas">
             <h3>POLIFACTURA</h3>
         </div>
-        <h5>Iniciar Sesión Adm</h5>
-        <hr>
 
-        <div class="container mt-5">
-            <div class="form-group">
-                <input type="email" id="email" placeholder=" " required>
-                <label for="email">Ingresa tu email</label>
+        <header class="d-flex flex-column align-items-center mt-5">
+            <div class="d-flex justify-content-center mb-3">
+                <button id="btnAdm" class="btn btn-primary me-2">Administrador</button>
+                <button id="btnPos" class="btn btn-secondary">Cajero</button>
             </div>
-            <div class="form-group">
-                <input type="password" id="password" placeholder=" " required>
-                <label for="password">Ingresa tu contraseña</label>
-                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </header>
+
+        <div class="card pb-5">
+            <div id="container1" class="container-section">
+                <!-- Contenido del contenedor 1 -->
+                <div class="container mt-5">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Ingresa tu email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password">Ingresa tu contraseña</label>
+                        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    </div>
+                    <button type="button" class="btn btn-dark" id="login-button">Acceder</button>
+                    <p class="clickable" id="forgot-password">Olvide mi Contraseña</p>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                        data-bs-target="#registrarse">
+                        Registrarse
+                    </button>
+                </div>
+            </div>
+
+            <div id="container2" class="container-section">
+                <!-- Contenido del contenedor 2 -->
+                <div class="container mt-5">
+                    <div class="form-group">
+                        <input type="email" id="email-p" placeholder=" " required>
+                        <label for="email">Ingresa tu email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password-p" placeholder=" " required>
+                        <label for="password">Ingresa tu contraseña</label>
+                        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    </div>
+                    <button type="button" class="btn btn-dark" id="login-button-p">Acceder</button>
+                    <p class="clickable" id="forgot-password">Olvide mi Contraseña</p>
+
+                    
+                </div>
             </div>
         </div>
 
-        <button type="button" class="btn btn-dark" id="login-button">Acceder</button>
-        <p class="clickable" id="forgot-password">Olvide mi Contraseña</p>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registrarse">
-            Registrarse
-        </button>
     </div>
 
     <div id="custom-alert" class="alert">
@@ -63,7 +94,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+
                     <!-- Modal form registro -->
                     <form id='signup-form' class="row g-3">
 

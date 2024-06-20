@@ -22,6 +22,14 @@ body {
     color: #333333; /* Cambio del color del texto a negro */
 }
 
+.container-section {
+    display: none;
+}
+.container-section.active {
+    display: block;
+}
+
+
 .login-container img {
     width: 100px;
     height: 100px;
