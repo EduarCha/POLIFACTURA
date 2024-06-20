@@ -27,14 +27,51 @@ body {
     height: 100px;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.form-group {
+    position: relative;
+    margin-top: 2rem;
 }
 
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 0 5px;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 5px;
+    font-size: 12px;
+    color: #333;
+    transform: translateY(-50%);
+}
+
+.form-group .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
 button {
     width: 100%;
     padding: 10px;

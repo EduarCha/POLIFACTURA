@@ -72,3 +72,19 @@ function isValidPassword(password) {
 function openPDF() {
     window.open('Docs\Documento_de_Terminos_polifactura.pdf', '_blank');
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const togglePasswordIcon = document.querySelector('.toggle-password');
+    togglePasswordIcon.addEventListener('click', function () {
+        const passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordIcon.textContent = '🙈';
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordIcon.textContent = '👁️';
+        }
+    });
+});

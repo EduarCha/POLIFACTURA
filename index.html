@@ -11,19 +11,29 @@
 </head>
 
 <body>
+    
+<!--Login adm-->
     <div class="login-container">
 
         <div class="modal-header">
             <img src="img/logoP.png" alt="sistema libro de cuentas">
             <h3>POLIFACTURA</h3>
         </div>
-
+        <h5>Iniciar Sesión Adm</h5>
         <hr>
 
-        <h5>Ingresa tu email</h5>
-        <input type="email" id="email" placeholder="Correo electrónico">
-        <h5>Ingresa tu contraseña</h5>
-        <input type="password" id="password" placeholder="Contraseña">
+        <div class="container mt-5">
+            <div class="form-group">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Ingresa tu email</label>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Ingresa tu contraseña</label>
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+        </div>
+
         <button type="button" class="btn btn-dark" id="login-button">Acceder</button>
         <p class="clickable" id="forgot-password">Olvide mi Contraseña</p>
 
@@ -31,7 +41,6 @@
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registrarse">
             Registrarse
         </button>
-
     </div>
 
     <div id="custom-alert" class="alert">
