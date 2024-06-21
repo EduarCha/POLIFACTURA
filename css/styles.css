@@ -1,3 +1,26 @@
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
+
+    --color-background: #333333;
+    --color-text: #ffffff;
+    --color-container-bg: #ffffff;
+    --color-container-text: #333333;
+    --color-border: #ccc;
+    --color-placeholder: #999;
+    --color-button-bg: var(--color-primary);
+    --color-button-text: #fff;
+    --color-link-hover: var(--color-primary);
+    --color-alert-bg: rgba(0, 0, 0, 0.7);
+    --color-alert-content-bg: var(--color-dark);
+    --color-modal-bg: #666666;
+}
 
 /* Estilos generales */
 body {
@@ -8,18 +31,18 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #333333; /* Cambio de color de fondo a negro claro */
-    color: #ffffff; /* Cambio del color del texto a blanco para mejor contraste */
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 /* Estilos para el contenedor de inicio de sesión */
 .login-container {
     text-align: center;
     padding: 50px;
-    background-color: #ffffff; /* Cambio del color de fondo a blanco */
+    background-color: var(--color-container-bg);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #333333; /* Cambio del color del texto a negro */
+    color: var(--color-container-text);
 }
 
 .container-section {
@@ -28,7 +51,6 @@ body {
 .container-section.active {
     display: block;
 }
-
 
 .login-container img {
     width: 100px;
@@ -45,7 +67,7 @@ body {
     padding: 10px;
     margin: 5px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     outline: none;
 }
@@ -57,7 +79,7 @@ body {
     transform: translateY(-50%);
     background-color: white;
     padding: 0 5px;
-    color: #999;
+    color: var(--color-placeholder);
     font-size: 16px;
     transition: all 0.2s ease-in-out;
     pointer-events: none;
@@ -68,7 +90,7 @@ body {
     top: 0;
     left: 5px;
     font-size: 12px;
-    color: #333;
+    color: var(--color-container-text);
     transform: translateY(-50%);
 }
 
@@ -78,35 +100,44 @@ body {
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #999;
+    color: var(--color-placeholder);
 }
+
 button {
     width: 100%;
     padding: 10px;
-    background-color: #353535;
-    color: #fff;
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
     border: none;
     border-radius: 3px;
     cursor: pointer;
 }
 
+button:hover {
+    background-color: var(--color-primary);
+}
+
 .clickable {
-    color: #ffffff;
+    color: var(--color-text);
     text-decoration: underline;
     cursor: pointer;
 }
 
 .clickable:hover {
-    color: #353535;
+    color: var(--color-link-hover);
 }
 
-/* Estilos para el formulario de registro */
+/* Estilos para el formulario de registro producto */
 .registration-container {
     margin: auto;
     text-align: center;
     padding: 20px;
     width: 50vh;
     height: 140%;
+    background-color: var(--color-light);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: var(--color-dark);
 }
 
 .registration-container img {
@@ -131,13 +162,12 @@ label {
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     border-radius: 3px;
 }
 
 #forgot-password {
-    color: #888888; /* Color gris claro */
-    /* Otros estilos opcionales según necesites */
+    color: #888888;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -150,15 +180,15 @@ select {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--color-alert-bg);
     justify-content: center;
     align-items: center;
     z-index: 9999;
 }
 
 .alert-content {
-    background-color: #353535; /* Fondo negro */
-    color: #fff; /* Texto blanco */
+    background-color: var(--color-alert-content-bg);
+    color: var(--color-button-text);
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -166,8 +196,8 @@ select {
 }
 
 .alert button {
-    background-color: black; /* Color de botón azul */
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -176,6 +206,6 @@ select {
 }
 
 .modal-content {
-    background-color: #666666; /* Color negro claro */
-    color: #ffffff; /* Cambia el color del texto a blanco para mejor contraste */
-  }
+    background-color: var(--color-modal-bg);
+    color: var(--color-text);
+}

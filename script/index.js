@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     forgotPasswordLink.addEventListener('click', function () {
         showAlert('Funcionalidad de recuperación de contraseña aún no implementada');
     });
+    
 });
 
 function isValidEmail(email) {
@@ -68,6 +69,23 @@ function isValidPassword(password) {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
     return passwordRegex.test(password);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const buttons = document.querySelectorAll('#buttonGroup .btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove the outline class from all buttons
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-secondary');
+                btn.classList.add('btn-outline-secondary');
+            });
+            // Add the outline class to the clicked button
+            button.classList.remove('btn-outline-secondary');
+            button.classList.add('btn-secondary');
+        });
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     const btnAdm = document.getElementById('btnAdm');
