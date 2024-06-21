@@ -70,6 +70,8 @@ function isValidPassword(password) {
     return passwordRegex.test(password);
 }
 
+
+//validar boton selecionado
 document.addEventListener('DOMContentLoaded', (event) => {
     const buttons = document.querySelectorAll('#buttonGroup .btn');
 

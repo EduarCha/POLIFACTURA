@@ -22,11 +22,11 @@
 
         <div class="btn-group w-100 mt-3" role="group" id="buttonGroup">
             <button id="btnAdm" class="btn btn-secondary flex-fill text-nowrap">Iniciar sesión Adm</button>
-            <button id="btnPos" class="btn btn-secondary flex-fill text-nowrap">Iniciar sesión Pos</button>
+            <button id="btnPos" class="btn btn-secondary flex-fill text-nowrap">Iniciar sesión</button>
         </div>
 
 
-        <div class="card pb-5">
+        <div class="card ">
             <div id="container1" class="container-section">
                 <!-- Contenido del contenedor 1 -->
                 <div class="container mt-5">
@@ -42,8 +42,8 @@
                     <button type="button" class="btn btn-dark" id="login-button">Acceder</button>
                     <p class="clickable" id="forgot-password">Olvide mi Contraseña</p>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                    <!-- Button modal de registro-->
+                    <button type="button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal"
                         data-bs-target="#registrarse">
                         Registrarse
                     </button>
@@ -52,16 +52,28 @@
 
             <div id="container2" class="container-section">
                 <!-- Contenido del contenedor 2  cajero-->
-                <div class="container mt-5">
+                <div class="group m-2 p-3">
+                    <label for="inputState" class="form-label">Rol</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>Cajero</option>
+                        <option>Admin</option>
+                        <option>Socio</option>
+                        <option>Proveedor</option>
+                        <option>Cliente</option>
+                    </select>
+                </div>
+                <div class="container">
                     <div class="form-group">
                         <input type="email" id="email-p" placeholder=" " required>
-                        <label for="email">Usuario</label>
+                        <label for="email">Numéro de Documento</label>
                     </div>
+
                     <div class="form-group">
                         <input type="password" id="password-p" placeholder=" " required>
-                        <label for="password">Contraseña</label>
+                        <label for="password">PIN</label>
                         <span class="toggle-password" onclick="togglePassword()">👁️</span>
                     </div>
+
                     <button type="button" class="btn btn-dark" id="login-button-p">Acceder</button>
                     <p class="clickable" id="forgot-password">Olvide mi Contraseña</p>
 
@@ -80,9 +92,7 @@
     </div>
 
 
-    <!-- 
-        Modal registro 
-    -->
+    <!-- Modal registro -->
     <div class="modal fade" id="registrarse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -92,10 +102,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     <!-- Modal form registro -->
                     <form id='signup-form' class="row g-3">
-
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Ingresa tu correo</label>
                             <input type="email" class="form-control" id="inputEmail4" placeholder="Correo electronico">
@@ -107,23 +115,21 @@
 
                         <div class="col-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <!-- Enlace para abrir PDF en una nueva página -->
-                                <p><a href="docs/Docs/Documento_de_Terminos_polifactura.pdf" target="_blank"
-                                        style="color: white;" class="link-opacity-10-hover"> Acepto los terminos y
-                                        condiciones.</a>
-                                </p>
+                                <input class="form-check-input" type="checkbox" id="termsCheck">
+                                <label class="form-check-label" for="termsCheck">
+                                    <a href="docs/Docs/Documento_de_Terminos_polifactura.pdf" target="_blank"> Acepto
+                                        los términos y condiciones.</a>
+                                </label>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <!-- Enlace para abrir PDF en una nueva página -->
-                                <p><a href="docs/Docs/Documento_politica_de_datos_polifactura.pdf" target="_blank"
-                                        style="color: white;" class="link-opacity-10-hover"> Acepto la politica de
-                                        tratamiento de datos.</a>
-                                </p>
+                                <input class="form-check-input" type="checkbox" id="privacyCheck">
+                                <label class="form-check-label" for="privacyCheck">
+                                    <a href="docs/Docs/Documento_politica_de_datos_polifactura.pdf" target="_blank">
+                                        Acepto la política de tratamiento de datos.</a>
+                                </label>
                             </div>
                         </div>
 
@@ -135,6 +141,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
