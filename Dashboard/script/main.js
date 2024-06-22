@@ -147,6 +147,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+
+// Función para simular la sincronización
+function syncPrinter() {
+  var progress = 0;
+  var interval = setInterval(function () {
+    progress += 10;
+    $('#syncProgress .progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
+    if (progress >= 100) {
+      clearInterval(interval);
+      $('#syncProgress').addClass('d-none');  // Ocultar la barra de progreso
+      alert('La impresora se ha sincronizado correctamente.');  // Mensaje de éxito (puedes ajustarlo según tu lógica)
+      $('#addPrintModal').modal('hide');  // Cerrar el modal después de sincronizar
+    }
+  }, 1000);  // Intervalo de simulación en milisegundos (aquí cada segundo)
+}
+
+// Event listener para el botón "Agregar"
+document.getElementById('syncPrinterBtn').addEventListener('click', function () {
+  $('#syncProgress').removeClass('d-none');  // Mostrar la barra de progreso al hacer clic en "Agregar"
+  syncPrinter();  // Llamar a la función para simular la sincronización
+});
+
 /*
 
 
