@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     forgotPasswordLink.addEventListener('click', function () {
         showAlert('Funcionalidad de recuperación de contraseña aún no implementada');
     });
-    
+
 });
 
 function isValidEmail(email) {
@@ -116,6 +116,44 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             passwordInput.type = 'password';
             togglePasswordIcon.textContent = '👁️';
+        }
+    });
+});
+
+
+//funcion login cajero
+document.addEventListener('DOMContentLoaded', function () {
+    // Datos simulados como si vinieran de una base de datos
+    const usuarios = [
+        { rol: 'cajero', numDocumento: '123456', pin: '1234' },
+        { rol: 'admin', numDocumento: '789012', pin: '5678' },
+        // Agrega más usuarios según sea necesario
+    ];
+
+    const numDocumentoField = document.getElementById('numDocumento');
+    const pinField = document.getElementById('pin');
+    const rolField = document.getElementById('inputState');
+    const loginButton = document.getElementById('login-button-p');
+
+    loginButton.addEventListener('click', function () {
+        const numDocumento = numDocumentoField.value.trim();
+        const pin = pinField.value.trim();
+        const rol = rolField.value;
+
+        // Validar campos vacíos
+        if (numDocumento === '' || pin === '') {
+            alert('Por favor, ingrese su número de documento y PIN.');
+            return;
+        }
+
+        // Validar rol seleccionado
+        const usuarioEncontrado = usuarios.find(user => user.rol === rol && user.numDocumento === numDocumento && user.pin === pin);
+
+        if (usuarioEncontrado) {
+            // Redirigir al usuario a home/index.html
+            window.location.href = 'home/index.html';
+        } else {
+            alert('Los datos ingresados no son válidos. Por favor, verifique y vuelva a intentarlo.');
         }
     });
 });
