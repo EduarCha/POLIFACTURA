@@ -23,8 +23,9 @@
         <header class="header">
 
             <!-- btn para el logo y user -->
-            <button class="card overflow-x-auto custom-card custom-hover" style="width: 100%; overflow-x: auto; border: none;"
-                onclick="perfilUser()" data-bs-toggle="modal" data-bs-target="#registrarse">
+            <button class="card overflow-x-auto custom-card custom-hover"
+                style="width: 100%; overflow-x: auto; border: none;" onclick="perfilUser()" data-bs-toggle="modal"
+                data-bs-target="#registrarse">
                 <div class="d-flex justify-content-center align-items-center">
                     <i class='bx bxs-user-circle'></i>
                     <h5>Perfil Admin</h5>
@@ -134,7 +135,7 @@
                     <div class="card">
                         <img src="img/undraw_Photo.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p>Porción broaster
+                            <p>Producto 1
                                 <i data-bs-toggle="modal" data-bs-target="#exampleModal" class='bx bxs-info-circle'></i>
                             </p>
                             <h5 class="card-title">Cop $ 10.000</h5>
@@ -152,7 +153,7 @@
                         <div class="modal-content">
 
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Porción pollo</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Producto 1</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -162,7 +163,7 @@
                                 <!--code-->
                                 <img src="img/undraw_Photo.png" class="img-thumbnail" alt="...">
                                 <h3>$ 10.000</h3>
-                                <p>Porción de 400 gr de pollo braste mas papas y bebida</p>
+                                <p>producto de 400 gr mas adiciones y acompañantes</p>
                                 <p>0 Unidades disponibles</p>
                                 <div class="input-group">
                                     <input type="number" class="form-control" placeholder="Existencias"
@@ -192,11 +193,11 @@
                             </div>
 
                             <div class="col-5">
-                                <p class="1h-1 text-start">Porción broaster</p>
+                                <p class="1h-1 text-start">Producto 1</p>
                             </div>
 
                             <div class="col-5">
-                                <h5 class="card-title text-end">$ 1.000</h5>
+                                <h5 class="card-title text-end">$ 10.000</h5>
                                 <div class="input-group text-end">
                                     <button class="btn btn-outline-danger">-</button>
                                     <input id="cant" type="text" class="form-control" placeholder="0"
@@ -362,7 +363,7 @@
                                 placeholder="Ingrese el nombre del cliente">
                         </div>
                         <div class="col-md-6">
-                            <label for="nitCliente" class="form-label">NIT del Cliente</label>
+                            <label for="nitCliente" class="form-label">NIT/CC del Cliente</label>
                             <input type="text" class="form-control" id="nitCliente"
                                 placeholder="Ingrese el NIT del cliente">
                         </div>
@@ -425,7 +426,7 @@
 
                         <!-- Botones de acción -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-dark">Generar Nota de Crédito</button>
+                            <button type="submit" class="btn btn-primary">Generar Nota de Crédito</button>
                             <button type="reset" class="btn btn-secondary">Cancelar</button>
                         </div>
                     </form>
@@ -450,7 +451,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
 
-                            <a class="navbar-brand">Reporte Cerre de caja</a>
+                            <a class="navbar-brand">Reportes</a>
 
 
                             <div class="input-group mb-3">
@@ -466,9 +467,11 @@
                                     Mas Opciones
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action </a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="#gcierreDiario">Generar cierre diaro </a></li>
+                                    <li><a class="dropdown-item" href="#cierreDiario">Cosultar cierre diaro </a></li>
+                                    <a class="dropdown-item" href="#informeSemanal">Consultar informe semanal</a>
+                                    <a class="dropdown-item" href="#informeMensual">Consultar informe mensual</a>
+                                    <a class="dropdown-item" href="#informeAnual">Consultar informe anual</a>
                                 </ul>
                             </li>
                         </ul>
@@ -480,8 +483,9 @@
             <div class="container_fac bg-transparent border-top">
                 <div class="his_Scroll bg-transparent p-3 rounded-2">
 
-                    <form>
+                    <form id="gcierreDiario">
                         <!-- Información del Cierre -->
+                        <h2 class="text-center text-primary">Generar Cierre de Caja</h2>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
                             <input type="date" class="form-control" id="fecha" required>
@@ -501,7 +505,7 @@
                             <input type="number" class="form-control" id="totalEfectivo"
                                 placeholder="Ingrese el total de efectivo en caja" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="comentarios">Comentarios</label>
                             <textarea class="form-control" id="comentarios" rows="3"
                                 placeholder="Ingrese comentarios adicionales"></textarea>
@@ -511,9 +515,157 @@
                         <button type="reset" class="btn btn-secondary">Cancelar</button>
                     </form>
 
-                </div>
-            </div>
+                    <hr class="mt-5 mb-5">
 
+                    <div class="container mt-5" id="cierreDiario">
+                        <h2 class="text-center text-primary">Consultar Cierres de Caja diario</h2>
+
+                        <!-- Formulario para seleccionar la fecha -->
+
+                        <div class="input-group">
+                            <label for="fechaCierre" class="col-sm-2 col-form-label">
+                                <h5>Fecha de Cierre:</h5>
+                            </label>
+
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" id="fechaCierre" name="fechaCierre">
+                            </div>
+
+                            <div class="text-right col-sm-4">
+                                <button type="submit" class="btn btn-primary 5">Consultar</button>
+                            </div>
+                            <!-- Botón de imprimir -->
+                            <div class="text-right  sm-2">
+                                <button class="btn btn-secondary" onclick="window.print()">Imprimir</button>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="card d-flex">
+                            <div>
+                                <p>Factura Inicial: FE3606235</p>
+                                <p>Factura Final: FE3606227</p>
+                            </div>
+                        </div>
+
+                        <!-- Tabla con el resumen del cierre de caja -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descripción</th>
+                                        <th>Transacciones</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>EFECTIVO</td>
+                                        <td>1</td>
+                                        <td>$2.699.700</td>
+                                    </tr>
+                                    <tr>
+                                        <td>33</td>
+                                        <td>MASTERCARD DÉBITO</td>
+                                        <td>2</td>
+                                        <td>$577.800</td>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td>AMERICAN EXPRESS</td>
+                                        <td>1</td>
+                                        <td>$3.599.901</td>
+                                    </tr>
+                                    <tr>
+                                        <td>52</td>
+                                        <td>VISA CRÉDITO</td>
+                                        <td>5</td>
+                                        <td>$5.364.400</td>
+                                    </tr>
+                                    <tr>
+                                        <td>53</td>
+                                        <td>MASTERCARD CRÉDITO</td>
+                                        <td>1</td>
+                                        <td>$96.900</td>
+                                    </tr>
+                                    <tr>
+                                        <td>55</td>
+                                        <td>VISA DÉBITO</td>
+                                        <td>1</td>
+                                        <td>$96.900</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="3">Totales:</th>
+                                        <th>$12.435.601</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <!-- Resumen de formas de pago -->
+                        <div class="container mt-5">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Total Ventas</th>
+                                        <th>Base Gravada</th>
+                                        <th>Base Exenta</th>
+                                        <th>Valor IVA</th>
+                                        <th>Valor Descuentos</th>
+                                        <th>Valor Anticipos</th>
+                                        <th>Valor Recaudos</th>
+                                        <th>Valor Devoluciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>$7.386.001</td>
+                                        <td>$6.206.724</td>
+                                        <td>$0</td>
+                                        <td>$1.179.277</td>
+                                        <td>$0</td>
+                                        <td>$5.049.600</td>
+                                        <td>$0</td>
+                                        <td>$0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Sección Informe Semanal -->
+                    <div id="informeSemanal">
+                        <h2 class="text-center text-primary">Informe Semanal</h2>
+                        <p>Contenido del informe semanal...</p>
+                    </div>
+
+                    <hr>
+
+                    <!-- Sección Informe Mensual -->
+                    <div id="informeMensual" class="mt-5">
+                        <h2 class="text-center text-primary">Informe Mensual</h2>
+                        <p>Contenido del informe mensual...</p>
+                    </div>
+
+                    <hr>
+
+                    <!-- Sección Informe Anual -->
+                    <div id="informeAnual" class="mt-5">
+                        <h2 class="text-center text-primary">Informe Anual</h2>
+                        <p>Contenido del informe anual...</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
 
@@ -521,7 +673,6 @@
             Ajustes
         -->
         <div id="id_aju" class="container-ked-v" style="display: none;">
-
 
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
@@ -542,7 +693,7 @@
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                    data-bs-target="#addProductoModal">Nuevo Cliente</button>
+                                    data-bs-target="#addClienteModal">Nuevo Cliente</button>
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -579,7 +730,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <hr>
 
                     <!-- Información de Productos -->
@@ -601,7 +752,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <hr>
 
                     <!-- Información de clientes -->
@@ -648,9 +799,10 @@
             </div>
 
 
+
             <!-- Modal add Producto -->
             <div class="modal fade " id="addProductoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
+                aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -790,7 +942,56 @@
                 </div>
             </div>
 
+            <!-- Modal add cliente-->
+            <div class="modal fade" id="addClienteModal" tabindex="-1" role="dialog"
+                aria-labelledby="addClienteModalLabel" aria-hidden="true" data-bs-backdrop="static"
+                data-bs-keyboard="false">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addClienteModalLabel">Nuevo Cliente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Formulario para añadir nuevo cliente -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="documentoCliente">Numéro de Documento:</label>
+                                    <input type="text" class="form-control" id="documentoCliente"
+                                        placeholder="Ingrese el documento del cliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombreCliente">Nombre:</label>
+                                    <input type="text" class="form-control" id="nombreCliente"
+                                        placeholder="Ingrese el nombre del cliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefonoCliente">Teléfono:</label>
+                                    <input type="tel" class="form-control" id="telefonoCliente"
+                                        placeholder="Ingrese el teléfono del cliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailCliente">Correo electrónico:</label>
+                                    <input type="email" class="form-control" id="emailCliente"
+                                        placeholder="Ingrese el correo electrónico del cliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="direccionCliente">Dirección:</label>
+                                    <input type="text" class="form-control" id="direccionCliente"
+                                        placeholder="Ingrese la dirección del cliente">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar Cliente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+    </div>
 
     </div>
 
@@ -805,14 +1006,14 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                     <div>
-                        <h4> Perfil de la cuenta</h4>
+                        <h4>Perfil de la cuenta</h4>
                         <p id="userEmail">Perfil</p>
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Modal form perfil user -->
-                    <form id='signup-form' class="row g-3">
+                    <form id='form-perfil' class="row g-3">
                         <div class="col-md-6">
                             <label for="inputName" class="form-label">Nombres</label>
                             <input type="text" class="form-control" id="inputName" placeholder="Nombre">
@@ -823,8 +1024,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Correo electronico">
+                            <label for="inputEmail" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Correo electrónico">
                         </div>
 
                         <div class="col-md-6">
@@ -838,8 +1039,8 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label for="inputState" class="form-label">Rol</label>
-                            <select id="inputState" class="form-select">
+                            <label for="inputRol" class="form-label">Rol</label>
+                            <select id="inputRol" class="form-select">
                                 <option selected>Admin</option>
                                 <option>Empleado</option>
                                 <option>Socio</option>
@@ -852,54 +1053,54 @@
                             <label for="inputCity" class="form-label">Ingresa tu ciudad</label>
                             <input type="text" class="form-control" id="inputCity" placeholder="Ciudad">
                         </div>
+
                         <div class="col-md-4">
-                            <label for="inputState" class="form-label">Genero</label>
-                            <select id="inputState" class="form-select">
+                            <label for="inputgenero" class="form-label">Género</label>
+                            <select id="inputgenero" class="form-select">
                                 <option selected>Hombre</option>
                                 <option>Mujer</option>
                                 <option>No binario</option>
                                 <option>Otro</option>
                             </select>
                         </div>
+
                         <div class="col-md-4">
-                            <label for="Celular" class="form-label">Telefono</label>
-                            <input type="tel" class="form-control" id="Celular" placeholder="(+57)3123456789">
+                            <label for="Celular" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="Celular" placeholder="(57) 3123456789">
                         </div>
 
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <!-- Enlace para abrir PDF en una nueva página -->
-                                <p><a href="../docs/Docs/Documento_de_Terminos_polifactura.pdf" target="_blank"
-                                        style="color: white;" class="link-opacity-10-hover"> Acepto los terminos y
-                                        condiciones.</a>
-                                </p>
+                                <label class="form-check-label" for="gridCheck">
+                                    Acepto los términos y condiciones.
+                                </label>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <!-- Enlace para abrir PDF en una nueva página -->
-                                <p><a href="../docs/Docs/Documento_politica_de_datos_polifactura.pdf" target="_blank"
-                                        style="color: white;" class="link-opacity-10-hover"> Acepto la politica de
-                                        tratamiento de datos.</a>
-                                </p>
+                                <label class="form-check-label" for="gridCheck1">
+                                    Acepto la política de tratamiento de datos.
+                                </label>
                             </div>
                         </div>
 
-                        <div class="col-6">
-                            <button type="button" class="btn btn-outline-success">Actualizar mi cuenta</button>
-                        </div>
-
-                        <div class="col-6">
+                    </form>
+                    <div class="modal-footer d-flex">
+                        <div class="col">
                             <button id="log_out" type="button" class="btn btn-outline-danger">Cerrar sesión</button>
                         </div>
-                    </form>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary">Actualizar mi cuenta</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- 
@@ -927,7 +1128,7 @@
                     </div>
 
                     <!-- Modal form registro cajero-->
-                    <form id='signup-form' class="row g-3">
+                    <form id='form-cajero_add' class="row g-3">
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Usuario</label>
@@ -981,13 +1182,14 @@
                         </script>
 
 
-                        <P>El Administrador de sitema puede ser el mismo correo o uno direrente. con acceso designado
+                        <P>El Administrador de sitema puede ser el mismo correo o uno direrente. con acceso
+                            designado
                         </P>
 
 
 
                         <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-success">Crear Usuario</button>
+                            <button type="submit" class="btn btn-primary">Crear Usuario</button>
                         </div>
                     </form>
                 </div>
@@ -996,7 +1198,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="module" src="script/main.js"></script>
 </body>
 

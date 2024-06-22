@@ -12,14 +12,12 @@ logOut.addEventListener('click', async function () {
 });
 
 const userEmail = document.getElementById('userEmail');
-const staticEmail2 = document.getElementById('staticEmail2');
 let userEmailValue = ''; // Variable para almacenar el correo electrónico
 
 onAuthStateChanged(auth, async (user) => {
   if (user) { // Verifica si el usuario está autenticado
     userEmailValue = user.email; // Obtiene el correo electrónico del usuario
     userEmail.textContent = userEmailValue; // Actualiza el contenido del elemento HTML
-    staticEmail2.textContent = userEmailValue; // Actualiza el contenido del elemento HTML
   } else {
     userEmail.textContent = 'Usuario no logueado'; // Maneja el caso de usuario no autenticado
     await signOut(auth)
@@ -135,18 +133,19 @@ function ajustes() {
   }
 }
 
+// Script para scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
 
-document.getElementById("btnperfil").addEventListener("click", function () {
-  //code
-  perfilUser();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
 });
-function perfilUser() {
-  // Code
-
-}
-
-
-
 
 /*
 
@@ -214,5 +213,4 @@ function suma() {
   var sum = numero * precio;
   valor.innerHTML = "$ "+ sum;
 }*/
-
 
