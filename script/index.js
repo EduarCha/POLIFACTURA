@@ -116,47 +116,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const passwordInput = document.getElementById('password');
             const pinInput = document.getElementById('pin');
-            console.log('passwordInput:', passwordInput);
-            console.log('pinInput:', pinInput);
 
             if (passwordInput && passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 togglePasswordIcon.textContent = '🙈';
-            } else if (pinInput && pinInput.type === 'password') {
-                pinInput.type = 'text';
-                togglePasswordIcon.textContent = '🙈';
             } else if (passwordInput) {
                 passwordInput.type = 'password';
                 togglePasswordIcon.textContent = '👁️';
+            }
+
+            if (pinInput && pinInput.type === 'password') {
+                pinInput.type = 'text';
+                togglePasswordIcon.textContent = '🙈';
             } else if (pinInput) {
                 pinInput.type = 'password';
                 togglePasswordIcon.textContent = '👁️';
             }
+
         });
     });
 });
-
-function togglePassword1() {
-    const passwordInput = document.getElementById('password');
-    const pinInput = document.getElementById('pin');
-    const togglePasswordIcon = document.querySelector('.toggle-password');
-
-    if (passwordInput && passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        togglePasswordIcon.textContent = '🙈';
-    } else if (pinInput && pinInput.type === 'password') {
-        pinInput.type = 'text';
-        togglePasswordIcon.textContent = '🙈';
-    } else if (passwordInput) {
-        passwordInput.type = 'password';
-        togglePasswordIcon.textContent = '👁️';
-    } else if (pinInput) {
-        pinInput.type = 'password';
-        togglePasswordIcon.textContent = '👁️';
-    }
-}
-
-
 
 
 
@@ -165,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Datos simulados como si vinieran de una base de datos
     const usuarios = [
         { rol: 'cajero', numDocumento: '123456', pin: '1234' },
-        { rol: 'admin', numDocumento: '789012', pin: '5678' },
+        { rol: 'socio', numDocumento: '789012', pin: '5678' },
+        { rol: 'proveedor', numDocumento: '789012', pin: '5678' },
+        { rol: 'cliente', numDocumento: '789012', pin: '5678' },
         // Agrega más usuarios según sea necesario
     ];
 
@@ -190,9 +171,23 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validar rol seleccionado
         const usuarioEncontrado = usuarios.find(user => user.rol === rol && user.numDocumento === numDocumento && user.pin === pin);
 
+        // Validar    
         if (usuarioEncontrado) {
-            // Redirigir al usuario a home/index.html
-            window.location.href = 'home/index.html';
+            // validar rol y Redirigir al usuario asu html respectivo
+
+            if (usuarioEncontrado.rol === 'cajero') {
+                window.location.href = 'home/index.html';
+            } else if (usuarioEncontrado.rol === 'proveedor') {
+                window.location.href = 'home/proveedor.html';
+            } else if (usuarioEncontrado.rol === 'socio') {
+                window.location.href = 'home/sicio.html';
+            } else if (usuarioEncontrado.rol === 'cliente') {
+                window.location.href = 'home/cliente.html';
+            } else {
+                // Redirigir a una página genérica o de error si el rol no coincide con ninguno de los esperados
+                window.location.href = 'home/error.html';
+            }
+
         } else {
             alert('Los datos ingresados no son válidos. Por favor, verifique y vuelva a intentarlo.');
         }
