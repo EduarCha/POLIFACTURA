@@ -19,6 +19,7 @@ onAuthStateChanged(auth, async (user) => {
   if (user) { // Verifica si el usuario está autenticado
     userEmailValue = user.email; // Obtiene el correo electrónico del usuario
     userEmail.textContent = userEmailValue; // Actualiza el contenido del elemento HTML
+
   } else {
     userEmail.textContent = 'Usuario no logueado'; // Maneja el caso de usuario no autenticado
     await signOut(auth)
@@ -50,17 +51,84 @@ function buscar() {
 
 }
 
-var id_pos = document.getElementById("id_pos");
-var id_his = document.getElementById("id_his");
-var id_inv = document.getElementById("id_inv");
-var id_rep = document.getElementById("id_rep");
-var id_aju = document.getElementById("id_aju");
+
+//ocultar elemento div al abrir la pagina web
+document.addEventListener('DOMContentLoaded', (event) => {
+  id_pos.style.display = "block";
+  id_his.style.display = "none";
+  id_inv.style.display = "none";
+  id_rep.style.display = "none";
+  id_aju.style.display = "none";
+});
 
 
-const btnpos = document.getElementById('btnpos')
-btnpos.addEventListener('click', () => {
-  pos();
-})
+// Obtener todos los botones del menú
+const buttons = document.querySelectorAll('.btn-sidebar');
+
+// Obtener elementos por ID
+const id_pos = document.getElementById("id_pos");
+const id_his = document.getElementById("id_his");
+const id_inv = document.getElementById("id_inv");
+const id_rep = document.getElementById("id_rep");
+const id_aju = document.getElementById("id_aju");
+
+// Función para manejar el clic en cada botón del menú
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Limpiar estilos de todos los botones antes de aplicar al botón actual
+        buttons.forEach(btn => {
+            btn.querySelector('span').style.fontWeight = 'normal';
+            btn.querySelector('span').style.color = ''; // Vaciar para que se utilicen los colores de estilo
+            btn.querySelector('i').style.color = ''; // Vaciar para que se utilicen los colores de estilo
+        });
+
+        // Aplicar estilos al botón actual
+        const buttonText = this.querySelector('span');
+        const icon = this.querySelector('i');
+        if (buttonText && icon) {
+            buttonText.style.fontWeight = 'bold';
+            buttonText.style.color = 'white'; // Cambiar el color del texto 
+            icon.style.color = 'white'; // Cambiar el color del icono
+        }
+
+        // Mostrar contenido correspondiente según el botón clicado
+        switch (this.id) {
+            case 'btnpos':
+                showContent(id_pos);
+                break;
+            case 'btnhis':
+                showContent(id_his);
+                break;
+            case 'btninv':
+                showContent(id_inv);
+                break;
+            case 'btnrep':
+                showContent(id_rep);
+                break;
+            case 'btnaju':
+                showContent(id_aju);
+                break;
+            default:
+                break;
+        }
+    });
+});
+
+// Función para mostrar el contenido correspondiente y ocultar los demás
+function showContent(elementToShow) {
+    const elementsToHide = [id_pos, id_his, id_inv, id_rep, id_aju];
+    elementsToHide.forEach(element => {
+        if (element !== elementToShow) {
+            element.style.display = "none";
+        }
+    });
+    elementToShow.style.display = "block";
+}
+
+
+
+
+/*
 function pos() {
   // Code    
   if (id_pos.style.display === "none") {
@@ -69,8 +137,10 @@ function pos() {
     id_inv.style.display = "none";
     id_rep.style.display = "none";
     id_aju.style.display = "none";
+    this.classList.toggle('bold-blue-text');
   }
 }
+
 
 const btnhis = document.getElementById('btnhis')
 btnhis.addEventListener('click', () => {
@@ -133,6 +203,8 @@ function ajustes() {
     id_inv.style.display = "none";
   }
 }
+*/
+
 
 // Script para scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -148,11 +220,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+
 // main.js
 import { cargarProductos } from './pos.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const productContainer = document.getElementById('productContainer');
+
 
   cargarProductos().then(data => {
     productContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar los datos

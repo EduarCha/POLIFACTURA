@@ -107,18 +107,57 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const togglePasswordIcon = document.querySelector('.toggle-password');
-    togglePasswordIcon.addEventListener('click', function () {
-        const passwordInput = document.getElementById('password');
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            togglePasswordIcon.textContent = '🙈';
-        } else {
-            passwordInput.type = 'password';
-            togglePasswordIcon.textContent = '👁️';
-        }
+    const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+    console.log('Número de elementos toggle-password:', togglePasswordIcons.length);
+
+    togglePasswordIcons.forEach(togglePasswordIcon => {
+        togglePasswordIcon.addEventListener('click', function () {
+            console.log('Click en toggle-password icon.');
+
+            const passwordInput = document.getElementById('password');
+            const pinInput = document.getElementById('pin');
+            console.log('passwordInput:', passwordInput);
+            console.log('pinInput:', pinInput);
+
+            if (passwordInput && passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePasswordIcon.textContent = '🙈';
+            } else if (pinInput && pinInput.type === 'password') {
+                pinInput.type = 'text';
+                togglePasswordIcon.textContent = '🙈';
+            } else if (passwordInput) {
+                passwordInput.type = 'password';
+                togglePasswordIcon.textContent = '👁️';
+            } else if (pinInput) {
+                pinInput.type = 'password';
+                togglePasswordIcon.textContent = '👁️';
+            }
+        });
     });
 });
+
+function togglePassword1() {
+    const passwordInput = document.getElementById('password');
+    const pinInput = document.getElementById('pin');
+    const togglePasswordIcon = document.querySelector('.toggle-password');
+
+    if (passwordInput && passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePasswordIcon.textContent = '🙈';
+    } else if (pinInput && pinInput.type === 'password') {
+        pinInput.type = 'text';
+        togglePasswordIcon.textContent = '🙈';
+    } else if (passwordInput) {
+        passwordInput.type = 'password';
+        togglePasswordIcon.textContent = '👁️';
+    } else if (pinInput) {
+        pinInput.type = 'password';
+        togglePasswordIcon.textContent = '👁️';
+    }
+}
+
+
+
 
 
 //funcion login cajero
@@ -135,10 +174,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const rolField = document.getElementById('inputState');
     const loginButton = document.getElementById('login-button-p');
 
+
     loginButton.addEventListener('click', function () {
         const numDocumento = numDocumentoField.value.trim();
         const pin = pinField.value.trim();
         const rol = rolField.value;
+
 
         // Validar campos vacíos
         if (numDocumento === '' || pin === '') {

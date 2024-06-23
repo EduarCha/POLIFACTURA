@@ -1,0 +1,47 @@
+[
+    {
+        "sku": "SKU001",
+        "titulo": "Producto A",
+        "cantidadVendida": 50,
+        "categoria": "Electrónica",
+        "precioUnitario": 30,
+        "stock": 100,
+        "existencias": 50
+    },
+    {
+        "sku": "SKU002",
+        "titulo": "Producto B",
+        "cantidadVendida": 30,
+        "categoria": "Ropa",
+        "precioUnitario": 20,
+        "stock": 80,
+        "existencias": 20
+    },
+    {
+        "sku": "SKU003",
+        "titulo": "Producto C",
+        "cantidadVendida": 25,
+        "categoria": "Hogar",
+        "precioUnitario": 25,
+        "stock": 120,
+        "existencias": 70
+    },
+    {
+        "sku": "SKU004",
+        "titulo": "Producto D",
+        "cantidadVendida": 45,
+        "categoria": "Electrónica",
+        "precioUnitario": 35,
+        "stock": 90,
+        "existencias": 45
+    },
+    {
+        "sku": "SKU005",
+        "titulo": "Producto E",
+        "cantidadVendida": 60,
+        "categoria": "Ropa",
+        "precioUnitario": 25,
+        "stock": 100,
+        "existencias": 40
+    }
+]
