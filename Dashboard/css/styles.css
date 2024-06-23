@@ -108,9 +108,6 @@ body {
   margin: 3px;
 }
 
-.img-fluidcss{
-  width: 40px; height: 40px; padding: 2px; margin-top: 10px;
-}
 
 .his_Scroll {
   width: 100%;
@@ -181,7 +178,7 @@ body {
   height: 100%;
   padding: 5px;
   border-radius: 10px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   box-shadow: 0 2px 4px var(--color-shadow);
 }
 
@@ -191,3 +188,18 @@ body {
   align-content: center;
   background-color: var(--color-background);
 }
+
+/* styles.css (archivo de estilos externo) */
+.product-container {
+    max-height: 800px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilitar scroll vertical si es necesario */
+}
+
+.product-card {
+    /* Estilos de las tarjetas de producto */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+

@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Producto 1",
+        "price": 10000,
+        "imageUrl": "img/undraw_Photo.png"
+    },
+    {
+        "name": "Producto 2",
+        "price": 15000,
+        "imageUrl": "img/undraw_Photo.png"
+    },
+    {
+        "name": "Producto 3",
+        "price": 20000,
+        "imageUrl": "img/undraw_Photo.png"
+    },
+    {
+        "name": "Producto 4",
+        "price": 25000,
+        "imageUrl": "img/undraw_Photo.png"
+    },
+    {
+        "name": "Producto 4",
+        "price": 25000,
+        "imageUrl": "img/undraw_Photo.png"
+    },
+    {
+        "name": "Producto 4",
+        "price": 25000,
+        "imageUrl": "img/undraw_Photo.png"
+    },
+    {
+        "name": "Producto 4",
+        "price": 25000,
+        "imageUrl": "img/undraw_Photo.png"
+    }
+]
