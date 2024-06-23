@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   cargarProductos().then(data => {
     productContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar los datos
-    data.slice(0, 3).forEach(product => {
+    data.slice(0, 300).forEach(product => {
       const cardHTML = `
                 <div class="card mb-3 w-100">
                     <div class="row g-0 text-center">

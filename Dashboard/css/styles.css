@@ -103,11 +103,15 @@ body {
   align-items: center;
 }
 
-.container_fac {
+.container_fac {/* Style container Fac para el historial de facturas */
   height: 86vh;
   margin: 3px;
 }
 
+
+.img-fluidcss{
+  width: 40px; height: 40px; padding: 2px; margin-top: 10px;
+}
 
 .his_Scroll {
   width: 100%;
@@ -176,30 +180,22 @@ body {
   width: 30%;
   min-width: 300px;
   height: 100%;
-  padding: 5px;
+  padding: 2px;
   border-radius: 10px;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   box-shadow: 0 2px 4px var(--color-shadow);
 }
 
-.form-control {
-  width: 60px;
-  justify-content: center;
-  align-content: center;
-  background-color: var(--color-background);
+.product-container-scroll{
+  width: 98%;
+  height: 60%;
+  background-color: var(--color-primary);
+  padding: 2px;
+  border-radius: 10px;
+  overflow-y: scroll;
 }
 
-/* styles.css (archivo de estilos externo) */
-.product-container {
-    max-height: 800px; /* Altura máxima del contenedor */
-    overflow-y: auto; /* Habilitar scroll vertical si es necesario */
+.product-container-scroll::-webkit-scrollbar {
+  width: 0; /* Ocultar la barra de desplazamiento en navegadores webkit (Chrome, Safari, etc.) */
+  background: transparent; /* Fondo transparente */
 }
-
-.product-card {
-    /* Estilos de las tarjetas de producto */
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
