@@ -32,7 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//en acrear usuarios deja ecribir solo letras mayuscukay numeros 
+
+document.getElementById('openModalBtn').addEventListener('click', function() {
+    var amountInput = document.getElementById('amountInput').value;
+    if (amountInput.trim() === "") {
+        alert("Por favor, ingrese un monto.");
+    } else {
+        $('#pagosModal').modal('show');
+    }
+});
+
+/*/en acrear usuarios deja ecribir solo letras mayuscukay numeros 
 function filterInput(event) {
     const input = event.target;
     const value = input.value;
@@ -47,4 +57,4 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputDocumento = document.getElementById('inputDocumento');
     inputDocumento.addEventListener('input', filterInput);
 });
-
+*/

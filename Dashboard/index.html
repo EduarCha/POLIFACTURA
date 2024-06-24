@@ -95,8 +95,9 @@
                         <button class="btn btn-outline-secondary" aria-label="Buscar" type="submit" onclick="buscar()">
                             <i class="bx bx-search"></i>
                         </button>
-                        <button class="btn btn-outline-secondary" aria-label="Buscar" type="submit" onclick="buscar()">
+                        <button class="btn btn-outline-secondary" aria-label="Buscar" type="submit">
                             <i class='bx bx-grid-alt'></i>
+                            <i class='bx bx-list-ul'></i>
                         </button>
                     </div>
                 </div>
@@ -107,7 +108,7 @@
                         <div class="col-6">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                                 <button class="btn" type="button">
-                                    <i class='bx bxs-cart'></i>0
+                                    <i class='bx bxs-receipt'></i>Ordenes
                                 </button>
 
                             </div>
@@ -191,7 +192,54 @@
                         </div>
                     </div>
 
+                    <hr>
 
+
+                    <div class="card w-100 m-5px">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <p>Base: 0</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p>Iva: 0</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h5>Total: 0</h5>
+                            </li>
+                        </ul>
+                        <div class="group">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Recibido: $</span>
+                                <input type="text" class="form-control" id="amountInput"
+                                    aria-label="Amount (to the nearest dollar)">
+                                <button type="button" class="btn btn-outline-primary"
+                                    id="openModalBtn">Continuar</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Vertically centered scrollable modal datos cliente y pagos -->
+                    <div class="modal fade" id="pagosModal" tabindex="-1" aria-labelledby="pagosModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="pagosModalLabel">Datos de Cliente y Pagos</h5>
+                                    
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -1234,7 +1282,7 @@
                                         pattern="[0-9]" maxlength="1" required autocomplete="off">
                                 </div>
                             </div>
-                        </div>             
+                        </div>
 
 
                         <P>El Usuario de sitema puede ser el mismo Admin o uno direrente. con acceso

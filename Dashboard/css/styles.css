@@ -191,7 +191,7 @@ body {
 
 .product-container-scroll{
   width: 98%;
-  height: 60%;
+  height: 50%;
   background-color: var(--color-primary);
   padding: 2px;
   border-radius: 10px;
