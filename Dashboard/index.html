@@ -54,12 +54,12 @@
             <span>Historial</span>
         </button>
 
-        <button class="btn-sidebar" id="btninv">
+        <button class="btn-sidebar d-none" id="btninv">
             <i class='bx bx-list-check'></i>
             <span>Notacredito</span>
         </button>
 
-        <button class="btn-sidebar" id="btnrep">
+        <button class="btn-sidebar d-none" id="btnrep">
             <i class='bx bxs-report'></i>
             <span>Reportes</span>
         </button>
@@ -583,7 +583,7 @@
 
                     <hr class="mt-5 mb-5">
 
-                    <div class="container mt-5" id="cierreDiario">
+                    <div class="container mt-5 d-none" id="cierreDiario">
                         <h2 class="text-center text-primary">Consultar Cierres de Caja diario</h2>
 
                         <!-- Formulario para seleccionar la fecha -->
@@ -709,7 +709,7 @@
                     <hr>
 
                     <!-- Sección Informe Semanal -->
-                    <div id="informeSemanal">
+                    <div id="informeSemanal" class="d-none">
                         <h2 class="text-center text-primary">Informe Semanal</h2>
                         <p>Contenido del informe semanal...</p>
 
@@ -718,7 +718,7 @@
                     <hr>
 
                     <!-- Sección Informe Mensual -->
-                    <div id="informeMensual" class="mt-5">
+                    <div id="informeMensual" class="mt-5 d-none">
                         <h2 class="text-center text-primary">Informe Mensual</h2>
                         <p>Contenido del informe mensual...</p>
                     </div>
@@ -726,7 +726,7 @@
                     <hr>
 
                     <!-- Sección Informe Anual -->
-                    <div id="informeAnual" class="mt-5">
+                    <div id="informeAnual" class="mt-5 d-none">
                         <h2 class="text-center text-primary">Informe Anual</h2>
                         <p>Contenido del informe anual...</p>
                     </div>
@@ -751,7 +751,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-outline-primary me-2 d-none" data-bs-toggle="modal"
                                     data-bs-target="#perfil_admin">Agregar Usuario</button>
                             </li>
                             <li class="nav-item">
@@ -759,11 +759,11 @@
                                     data-bs-target="#addProductoModal">Nuevo Producto</button>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-outline-primary me-2 d-none" data-bs-toggle="modal"
                                     data-bs-target="#addClienteModal">Nuevo Cliente</button>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal"
                                     data-bs-target="#addPrintModal">Nueva Impresora</button>
                             </li>
                         </ul>
@@ -844,7 +844,7 @@
                     <hr>
 
                     <!-- Información de impresoras -->
-                    <div class="container mt-5">
+                    <div class="container mt-5 d-none">
                         <h2 class="mb-4">Lista de Impresoras</h2>
                         <table class="table table-bordered">
                             <thead class="thead-dark">

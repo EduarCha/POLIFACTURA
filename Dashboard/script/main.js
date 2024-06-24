@@ -74,55 +74,55 @@ const id_aju = document.getElementById("id_aju");
 
 // Función para manejar el clic en cada botón del menú
 buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Limpiar estilos de todos los botones antes de aplicar al botón actual
-        buttons.forEach(btn => {
-            btn.querySelector('span').style.fontWeight = 'normal';
-            btn.querySelector('span').style.color = ''; // Vaciar para que se utilicen los colores de estilo
-            btn.querySelector('i').style.color = ''; // Vaciar para que se utilicen los colores de estilo
-        });
-
-        // Aplicar estilos al botón actual
-        const buttonText = this.querySelector('span');
-        const icon = this.querySelector('i');
-        if (buttonText && icon) {
-            buttonText.style.fontWeight = 'bold';
-            buttonText.style.color = 'white'; // Cambiar el color del texto 
-            icon.style.color = 'white'; // Cambiar el color del icono
-        }
-
-        // Mostrar contenido correspondiente según el botón clicado
-        switch (this.id) {
-            case 'btnpos':
-                showContent(id_pos);
-                break;
-            case 'btnhis':
-                showContent(id_his);
-                break;
-            case 'btninv':
-                showContent(id_inv);
-                break;
-            case 'btnrep':
-                showContent(id_rep);
-                break;
-            case 'btnaju':
-                showContent(id_aju);
-                break;
-            default:
-                break;
-        }
+  button.addEventListener('click', function () {
+    // Limpiar estilos de todos los botones antes de aplicar al botón actual
+    buttons.forEach(btn => {
+      btn.querySelector('span').style.fontWeight = 'normal';
+      btn.querySelector('span').style.color = ''; // Vaciar para que se utilicen los colores de estilo
+      btn.querySelector('i').style.color = ''; // Vaciar para que se utilicen los colores de estilo
     });
+
+    // Aplicar estilos al botón actual
+    const buttonText = this.querySelector('span');
+    const icon = this.querySelector('i');
+    if (buttonText && icon) {
+      buttonText.style.fontWeight = 'bold';
+      buttonText.style.color = 'white'; // Cambiar el color del texto 
+      icon.style.color = 'white'; // Cambiar el color del icono
+    }
+
+    // Mostrar contenido correspondiente según el botón clicado
+    switch (this.id) {
+      case 'btnpos':
+        showContent(id_pos);
+        break;
+      case 'btnhis':
+        showContent(id_his);
+        break;
+      case 'btninv':
+        showContent(id_inv);
+        break;
+      case 'btnrep':
+        showContent(id_rep);
+        break;
+      case 'btnaju':
+        showContent(id_aju);
+        break;
+      default:
+        break;
+    }
+  });
 });
 
 // Función para mostrar el contenido correspondiente y ocultar los demás
 function showContent(elementToShow) {
-    const elementsToHide = [id_pos, id_his, id_inv, id_rep, id_aju];
-    elementsToHide.forEach(element => {
-        if (element !== elementToShow) {
-            element.style.display = "none";
-        }
-    });
-    elementToShow.style.display = "block";
+  const elementsToHide = [id_pos, id_his, id_inv, id_rep, id_aju];
+  elementsToHide.forEach(element => {
+    if (element !== elementToShow) {
+      element.style.display = "none";
+    }
+  });
+  elementToShow.style.display = "block";
 }
 
 
