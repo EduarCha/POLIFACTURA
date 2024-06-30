@@ -3,7 +3,6 @@ import { auth } from '../../script/firebase.js'
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"
 import { signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"
 
-var urlPag = '';
 
 const logOut = document.getElementById('log_out');
 logOut.addEventListener('click', async function () {
@@ -27,10 +26,14 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
+
+
+//cambar them appweb
 document.getElementById("btnsun").addEventListener("click", function () {
   //code
   themeClaro();
 });
+
 function themeClaro() {
   document.querySelector("body").setAttribute("data-bs-theme", "ligth");
   document.querySelector("#d2-icon").setAttribute("class", "bx bxs-sun");
@@ -46,10 +49,6 @@ function themeOscuro() {
 }
 
 
-function buscar() {
-  // Code
-
-}
 
 
 //ocultar elemento div al abrir la pagina web
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-// Obtener todos los botones del menú
+// Obtener todos los botones del menú sedebar
 const buttons = document.querySelectorAll('.btn-sidebar');
 
 // Obtener elementos por ID
@@ -143,7 +142,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// main.js
+// Leer orden de productos de tabla 
 import { cargarProductos } from './pos.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -178,26 +177,51 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//Insertar productos
+document.getElementById('createProductButton').addEventListener('click', function() {
+  // Obtener los valores de los campos del formulario
+  const productName = document.getElementById('productName').value;
+  const productDescription = document.getElementById('productDescription').value;
+  const productPrice = document.getElementById('productPrice').value;
+  const productIVA = document.getElementById('productIVA').value;
+  const productCategory = document.getElementById('productCategory').value;
 
-// Función para simular la sincronización
-function syncPrinter() {
-  var progress = 0;
-  var interval = setInterval(function () {
-    progress += 10;
-    $('#syncProgress .progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
-    if (progress >= 100) {
-      clearInterval(interval);
-      $('#syncProgress').addClass('d-none');  // Ocultar la barra de progreso
-      alert('La impresora se ha sincronizado correctamente.');  // Mensaje de éxito (puedes ajustarlo según tu lógica)
-      $('#addPrintModal').modal('hide');  // Cerrar el modal después de sincronizar
-    }
-  }, 1000);  // Intervalo de simulación en milisegundos (aquí cada segundo)
-}
+  // Validar los campos del formulario
+  if (!productName || !productDescription || !productPrice || !productIVA || !productCategory) {
+      alert('Todos los campos son obligatorios.');
+      return;
+  }
 
-// Event listener para el botón "Agregar"
-document.getElementById('syncPrinterBtn').addEventListener('click', function () {
-  $('#syncProgress').removeClass('d-none');  // Mostrar la barra de progreso al hacer clic en "Agregar"
-  syncPrinter();  // Llamar a la función para simular la sincronización
+  // Crear el nuevo producto
+  const newProduct = {
+      id: Date.now(), // Utilizar timestamp como ID único
+      nombre: productName,
+      descripcion: productDescription,
+      precio: parseFloat(productPrice),
+      iva: parseInt(productIVA),
+      categoriaId: parseInt(productCategory)
+  };
+
+  // Insertar el nuevo producto en el JSON de productos
+  fetch('http://localhost:3000/productos', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newProduct)
+  })
+  .then(response => {
+      if (response.ok) {
+          alert('Producto creado exitosamente.');
+          // Cerrar el modal y limpiar el formulario
+          $('#addProductoModal').modal('hide');
+          document.getElementById('addProductoForm').reset();
+      } else {
+          throw new Error('Error al insertar el producto.');
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      alert('Hubo un error al crear el producto.');
+  });
 });
-
-

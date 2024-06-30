@@ -153,7 +153,8 @@
                         <div class="modal-content">
 
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Producto 1</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles del producto o servicio
+                                </h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -161,15 +162,9 @@
 
                             <div id="infProducto" class="modal-body">
                                 <!--code-->
-                                <img src="img/undraw_Photo.png" class="img-thumbnail" alt="...">
+                                <h4>Producto 1</h4>
                                 <h3>$ 10.000</h3>
                                 <p>producto de 400 gr mas adiciones y acompañantes</p>
-                                <p>0 Unidades disponibles</p>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" placeholder="Existencias"
-                                        aria-label="Recipient's username with two button addons">
-                                    <button class="btn btn-outline-success" type="button">Agregar Existencias</button>
-                                </div>
 
                             </div>
 
@@ -225,8 +220,9 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="pagosModalLabel">Datos de Cliente y Pagos</h5>
-                                    
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
 
                                 </div>
                                 <div class="modal-body">
@@ -840,166 +836,85 @@
                         </table>
                     </div>
 
-                    <hr>
-
-                    <!-- Información de impresoras -->
-                    <div class="container mt-5 d-none">
-                        <h2 class="mb-4">Lista de Impresoras</h2>
-                        <table class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>ID impresora</th>
-                                    <th>Marca</th>
-                                    <th>Serial</th>
-                                    <th>Novedades</th>
-                                    <th>Valor</th>
-                                </tr>
-                            </thead>
-                            <tbody id="printTableBody">
-                                <!-- Los datos se cargarán aquí -->
-                            </tbody>
-                        </table>
-                    </div>
 
                 </div>
             </div>
 
 
-
             <!-- Modal add Producto -->
-            <div class="modal fade " id="addProductoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="addProductoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Crear producto</h1>
+                            <h1 class="modal-title fs-5">Crear producto</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <div id="infProducto" class="modal-body">
-                            <!--editar producto-->
+                            <!--form add producto-->
                             <div id="edtProducto" class="modal-body d-block">
-
-                                <form class="was-validated">
+                                <form id="addProductoForm" class="was-validated">
 
                                     <div class="mb-3">
-                                        <label for="validationTextarea" class="form-label">Titulo</label>
-                                        <input class="form-control form-control-lg" type="text"
-                                            placeholder="Titulo del producto" aria-label=".form-control-lg example"
-                                            required>
-                                        <div class="invalid-feedback">Titulo de pruducto requerido.</div>
+                                        <label for="productName" class="form-label">Nombre del producto</label>
+                                        <input id="productName" class="form-control form-control-lg" type="text"
+                                            placeholder="Nombre del producto" aria-label="Nombre del producto" required>
+                                        <div class="invalid-feedback">Nombre del producto requerido.</div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="validationTextarea" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="validationTextarea"
+                                        <label for="productDescription" class="form-label">Descripción</label>
+                                        <textarea id="productDescription" class="form-control"
                                             placeholder="Descripción del producto" required></textarea>
-                                        <div class="invalid-feedback">Descripción corta del producto.</div>
+                                        <div class="invalid-feedback">Descripción del producto requerida.</div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="validationTextarea" class="form-label">Bodega</label>
-                                        <select class="form-select" required aria-label="select example">
-                                            <option value="">Selecione Sub bodega</option>
-                                            <option value="1">Pricipal</option>
-                                            <option value="2">Online</option>
-                                        </select>
-                                        <div class="invalid-feedback">Categorias de productos en sub bodega</div>
+                                        <label for="productPrice" class="form-label">Precio</label>
+                                        <input id="productPrice" class="form-control" type="number"
+                                            placeholder="Precio del producto" aria-label="Precio del producto" required>
+                                        <div class="invalid-feedback">Precio del producto requerido.</div>
                                     </div>
 
-                                    <div class="container text-center">
+                                    <div class="mb-3">
+                                        <label for="productIVA" class="form-label">IVA</label>
+                                        <select id="productIVA" class="form-select" required
+                                            aria-label="Seleccionar IVA">
+                                            <option value="" disabled selected>Seleccionar IVA</option>
+                                            <option value="0">0%</option>
+                                            <option value="5">5%</option>
+                                            <option value="8">8%</option>
+                                            <option value="19">19%</option>
+                                        </select>
+                                        <div class="invalid-feedback">IVA del producto requerido.</div>
+                                    </div>
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <!--Code-->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text"
-                                                        id="inputGroup-sizing-default">Cod</span>
-                                                    <input type="text" class="form-control" required
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-default">
-                                                </div>
-                                            </div>
-
-                                            <div class="col">
-                                                <!--Code-->
-                                                <div class="input-group mb-3">
-                                                    <label class="input-group-text" for="inputGroupSelect01">IVA</label>
-                                                    <select class="form-select" required aria-label="select example">
-                                                        <option value="0">0%</option>
-                                                        <option value="5">5%</option>
-                                                        <option value="8">8%</option>
-                                                        <option value="19">19%</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <!--Code-->
-                                                <div class="input-group">
-                                                    <span class="input-group-text">$</span>
-                                                    <input type="number" class="form-control" placeholder="Costo"
-                                                        required
-                                                        aria-label="Dollar amount (with dot and two decimal places)">
-                                                </div>
-                                            </div>
-
-                                            <div class="col">
-                                                <!--code-->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text">$</span>
-                                                    <input type="number" class="form-control" placeholder="Precio"
-                                                        required
-                                                        aria-label="Dollar amount (with dot and two decimal places)">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <!--Code-->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text"
-                                                        id="inputGroup-sizing-default">Stok</span>
-                                                    <input type="number" class="form-control" required
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-default">
-                                                </div>
-                                            </div>
-
-                                            <div class="col">
-                                                <!--code-->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text"
-                                                        id="inputGroup-sizing-default">Existencia</span>
-                                                    <input type="number" class="form-control" required
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-default">
-                                                </div>
-                                            </div>
-                                        </div>
-
-
+                                    <div class="mb-3">
+                                        <label for="productCategory" class="form-label">Categoría</label>
+                                        <select id="productCategory" class="form-select" required
+                                            aria-label="Seleccionar categoría">
+                                            <option value="" disabled selected>Seleccionar categoría</option>
+                                            <option value="1">Categoría 1</option>
+                                            <option value="2">Categoría 2</option>
+                                            <option value="3">Categoría 3</option>
+                                        </select>
+                                        <div class="invalid-feedback">Categoría del producto requerida.</div>
                                     </div>
 
                                 </form>
                             </div>
-
                         </div>
 
                         <div class="modal-footer">
-                            <!--code-->
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
-
-                            <button type="button" class="btn btn-outline-success">Crear Producto</button>
+                            <button id="createProductButton" type="button" class="btn btn-outline-success">Crear
+                                Producto</button>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Modal add cliente-->
             <div class="modal fade" id="addClienteModal" tabindex="-1" role="dialog"
@@ -1049,63 +964,8 @@
                 </div>
             </div>
 
-            <!-- Modal add impresora-->
-            <div class="modal fade" id="addPrintModal" tabindex="-1" role="dialog" aria-labelledby="addPrintModalLabel"
-                aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="addPrintModalLabel">Agregar y Sincronizar Impresora POS</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="addPrintForm">
-                                <div class="form-group">
-                                    <label for="inputPrinterName">Nombre de la Impresora:</label>
-                                    <input type="text" class="form-control" id="inputPrinterName"
-                                        placeholder="Ingrese el nombre de la impresora">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputConnectionType">Tipo de Conexión:</label>
-                                    <select class="form-control" id="inputConnectionType">
-                                        <option value="usb">USB</option>
-                                        <option value="bluetooth">Bluetooth</option>
-                                        <option value="wifi">WiFi</option>
-                                    </select>
-                                </div>
-                            </form>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Imprimir factura en tamaño carta
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Imprimir factura en tirilla
-                                </label>
-                            </div>
-
-                            <!-- Barra de progreso simulada -->
-                            <div class="progress mt-3 d-none" id="syncProgress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info w-0"
-                                    role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                            <button type="button" class="btn btn-primary" id="syncPrinterBtn">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-    </div>
 
     </div>
 
@@ -1213,84 +1073,6 @@
     </div>
 
 
-
-    <!-- 
-        Modal nuevo usuario 
-    -->
-    <div class="modal fade" id="perfil_admin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Usuario nuevo</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="col-md-4">
-                        <label for="inputState" class="form-label">Rol</label>
-                        <select id="inputState" class="form-select">
-                            <option selected>Cajero</option>
-                            <option>Socio</option>
-                            <option>Proveedor</option>
-                            <option>Cliente</option>
-                        </select>
-                    </div>
-
-                    <!-- Modal form registro cajero-->
-                    <form id='form-cajero_add' class="row g-3">
-
-                        <div class="col-md-6">
-                            <label for="inputDocumento" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" id="inputDocumento"
-                                placeholder="Número de documento">
-                        </div>
-
-                        <div>
-                            <label for="inputDocumento1" class="form-label">Asignar PIN</label>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <input type="password" class="form-control pin-input" id="pinDigit1" placeholder="0"
-                                        pattern="[0-9]" maxlength="1" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="password" class="form-control pin-input" id="pinDigit2" placeholder="0"
-                                        pattern="[0-9]" maxlength="1" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="password" class="form-control pin-input" id="pinDigit3" placeholder="0"
-                                        pattern="[0-9]" maxlength="1" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="password" class="form-control pin-input" id="pinDigit4" placeholder="0"
-                                        pattern="[0-9]" maxlength="1" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="password" class="form-control pin-input" id="pinDigit5" placeholder="0"
-                                        pattern="[0-9]" maxlength="1" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="password" class="form-control pin-input" id="pinDigit6" placeholder="0"
-                                        pattern="[0-9]" maxlength="1" required autocomplete="off">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <P>El Usuario de sitema puede ser el mismo Admin o uno direrente. con acceso
-                            asignado por CC o NIT y PIN
-                        </P>
-
-
-
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-primary">Crear Usuario</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
