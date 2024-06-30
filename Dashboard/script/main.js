@@ -225,3 +225,81 @@ document.getElementById('createProductButton').addEventListener('click', functio
       alert('Hubo un error al crear el producto.');
   });
 });
+
+
+
+// Evento al hacer clic en Guardar Cambios en el formulario de edición
+
+// Obtener referencia a elementos del DOM
+const inputEditProductId = document.getElementById('editProductId');
+const buttonEditProduct = document.getElementById('buttonEditProduct');
+const editProductoForm = document.getElementById('editProductoForm');
+const buttonSaveChanges = document.getElementById('buttonSaveChanges');
+const editModal = new bootstrap.Modal(document.getElementById('editProductoModal'));
+
+// Función para cargar los datos del producto en el formulario de edición
+function cargarProductoParaEdicion(productoId) {
+    fetch(`http://localhost:3000/productos/${productoId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(producto => {
+            // Llenar los campos del formulario con los datos del producto
+            editProductoForm.elements['id'].value = producto.id;
+            editProductoForm.elements['nombre'].value = producto.nombre;
+            editProductoForm.elements['descripcion'].value = producto.descripcion;
+            editProductoForm.elements['precio'].value = producto.precio;
+            editProductoForm.elements['categoriaId'].value = producto.categoriaId; // Asignar valor de categoriaId
+
+            // Mostrar el modal de edición de producto
+            editModal.show();
+        })
+        .catch(error => {
+            console.error('Error al cargar los datos del producto:', error);
+            // Aquí puedes manejar el error, como mostrar un mensaje al usuario
+        });
+}
+
+// Evento al hacer clic en el botón de edición
+buttonEditProduct.addEventListener('click', function () {
+    const productoId = inputEditProductId.value.trim();
+
+    if (productoId) {
+        cargarProductoParaEdicion(productoId);
+    } else {
+        console.log('Ingrese un ID de producto válido.');
+        // Aquí puedes mostrar un mensaje al usuario o realizar alguna acción adicional si el campo está vacío
+    }
+});
+
+// Evento al hacer clic en Guardar Cambios en el formulario de edición
+buttonSaveChanges.addEventListener('click', function () {
+    const formData = new FormData(editProductoForm);
+
+    fetch(`http://localhost:3000/productos/${formData.get('id')}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(updatedProduct => {
+        // Aquí puedes actualizar visualmente la lista de productos si es necesario
+        console.log('Producto actualizado:', updatedProduct);
+        // Puedes cerrar el modal de edición aquí si lo deseas
+        editModal.hide();
+    })
+    .catch(error => {
+        console.error('Error al actualizar el producto:', error);
+        // Aquí puedes manejar el error, como mostrar un mensaje al usuario
+    });
+});

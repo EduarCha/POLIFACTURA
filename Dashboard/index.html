@@ -754,9 +754,23 @@
                                     data-bs-target="#addProductoModal">Nuevo Producto</button>
                             </li>
                             <li class="nav-item">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="editProductId"
+                                        placeholder="Id producto a editar" aria-label="Recipient's username"
+                                        aria-describedby="button-addon2">
+                                    <button type="button" id="buttonEditProduct" class="btn btn-outline-primary me-2"
+                                        data-bs-toggle="modal" data-bs-target="#editProductoModal"><i
+                                            class='bx bx-edit'></i></button>
+                                </div>
+                            </li>
+
+
+
+                            <li class="nav-item">
                                 <button type="button" class="btn btn-outline-primary me-2 d-none" data-bs-toggle="modal"
                                     data-bs-target="#addClienteModal">Nuevo Cliente</button>
                             </li>
+
                             <li class="nav-item">
                                 <button type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal"
                                     data-bs-target="#addPrintModal">Nueva Impresora</button>
@@ -916,6 +930,54 @@
             </div>
 
 
+            <!-- Modal Editar Producto -->
+            <!-- Modal para editar producto -->
+            <div class="modal fade" id="editProductoModal" tabindex="-1" aria-labelledby="editProductoModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editProductoModalLabel">Editar Producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editProductoForm">
+                                <input type="hidden" id="editProductoId" name="id">
+                                <div class="mb-3">
+                                    <label for="editNombreProducto" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="editNombreProducto" name="nombre"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editDescripcionProducto" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="editDescripcionProducto" name="descripcion"
+                                        rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editPrecioProducto" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" id="editPrecioProducto" name="precio"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editCategoriaProducto" class="form-label">Categoría</label>
+                                    <select class="form-select" id="editCategoriaProducto" name="categoriaId" required>
+                                        <!-- Opciones de categorías se llenarán dinámicamente desde JavaScript -->
+                                    </select>
+                                </div>
+                                <!-- Puedes agregar campos adicionales como stock aquí -->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="buttonSaveChanges">Guardar
+                                Cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <!-- Modal add cliente-->
             <div class="modal fade" id="addClienteModal" tabindex="-1" role="dialog"
                 aria-labelledby="addClienteModalLabel" aria-hidden="true" data-bs-backdrop="static"
@@ -971,7 +1033,7 @@
 
 
     <!-- 
-        Modal perfil user 
+        Modal perfil emprresa
     -->
     <div class="modal fade" id="registrarse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
