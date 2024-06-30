@@ -1,0 +1,222 @@
+{
+    "perfilEmpresa": [
+        {
+            "nit": "123456789-0",
+            "nombre": "Mi Empresa SAS",
+            "direccion": "Carrera 10 # 20-30",
+            "email": "info@miempresa.com",
+            "telefono": "3112345678"
+        }
+    ],
+
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Producto 1",
+            "precio": 10000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Producto 2",
+            "precio": 15000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Producto 3",
+            "precio": 20000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 1
+        },
+        {
+            "id": 4,
+            "nombre": "Producto 4",
+            "precio": 25000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 2
+        },
+        {
+            "id": 5,
+            "nombre": "Producto 5",
+            "precio": 25000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 2
+        },
+        {
+            "id": 6,
+            "nombre": "Producto 6",
+            "precio": 25000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 3
+        },
+        {
+            "id": 7,
+            "nombre": "Producto 7",
+            "precio": 25000,
+            "imagenUrl": "img/undraw_Photo.png",
+            "categoriaId": 3
+        }
+    ],
+
+    "categorias": [
+        {
+            "id": 1,
+            "nombre": "Categoría 1",
+            "descripcion": "Todos los productos de categoría 1"
+        },
+        {
+            "id": 2,
+            "nombre": "Categoría 2",
+            "descripcion": "Todos los productos de categoría 2"
+        },
+        {
+            "id": 3,
+            "nombre": "Categoría 3",
+            "descripcion": "Todos los productos de categoría 3"
+        }
+    ],
+
+    "ordenes": [
+        {
+            "id": 1,
+            "clienteId": 1,
+            "productos": [
+                {"productoId": 1, "cantidad": 2},
+                {"productoId": 3, "cantidad": 1}
+            ],
+            "subtotal": 40000,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 2,
+            "clienteId": 2,
+            "productos": [
+                {"productoId": 2, "cantidad": 1}
+            ],
+            "subtotal": 15000,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 3,
+            "clienteId": 3,
+            "productos": [
+                {"productoId": 4, "cantidad": 1},
+                {"productoId": 5, "cantidad": 1}
+            ],
+            "subtotal": 50000,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 4,
+            "clienteId": 4,
+            "productos": [
+                {"productoId": 6, "cantidad": 3}
+            ],
+            "subtotal": 75000,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 5,
+            "clienteId": 5,
+            "productos": [
+                {"productoId": 7, "cantidad": 1}
+            ],
+            "subtotal": 25000,
+            "fecha": "2024-06-30"
+        }
+    ],
+
+    "clientes": [
+        {
+            "id": 1,
+            "nombre": "Juan Pérez",
+            "direccion": "Calle Falsa 123",
+            "telefono": "555-1234",
+            "email": "juan.perez@example.com"
+        },
+        {
+            "id": 2,
+            "nombre": "María Gómez",
+            "direccion": "Avenida Siempre Viva 742",
+            "telefono": "555-5678",
+            "email": "maria.gomez@example.com"
+        },
+        {
+            "id": 3,
+            "nombre": "Carlos Rodríguez",
+            "direccion": "Calle de la Piruleta 456",
+            "telefono": "555-8765",
+            "email": "carlos.rodriguez@example.com"
+        },
+        {
+            "id": 4,
+            "nombre": "Ana Martínez",
+            "direccion": "Plaza de la Luna 789",
+            "telefono": "555-4321",
+            "email": "ana.martinez@example.com"
+        },
+        {
+            "id": 5,
+            "nombre": "Luis Fernández",
+            "direccion": "Calle del Sol 321",
+            "telefono": "555-5678",
+            "email": "luis.fernandez@example.com"
+        }
+    ],
+
+    "facturas": [
+        {
+            "id": 1,
+            "ordenId": 1,
+            "clienteId": 1,
+            "empresaId": "123456789-0",
+            "subtotal": 40000,
+            "iva": 7600,
+            "total": 47600,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 2,
+            "ordenId": 2,
+            "clienteId": 2,
+            "empresaId": "123456789-0",
+            "subtotal": 15000,
+            "iva": 2850,
+            "total": 17850,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 3,
+            "ordenId": 3,
+            "clienteId": 3,
+            "empresaId": "123456789-0",
+            "subtotal": 50000,
+            "iva": 9500,
+            "total": 59500,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 4,
+            "ordenId": 4,
+            "clienteId": 4,
+            "empresaId": "123456789-0",
+            "subtotal": 75000,
+            "iva": 14250,
+            "total": 89250,
+            "fecha": "2024-06-30"
+        },
+        {
+            "id": 5,
+            "ordenId": 5,
+            "clienteId": 5,
+            "empresaId": "123456789-0",
+            "subtotal": 25000,
+            "iva": 4750,
+            "total": 29750,
+            "fecha": "2024-06-30"
+        }
+    ]
+}
