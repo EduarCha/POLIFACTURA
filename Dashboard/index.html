@@ -906,7 +906,6 @@
 
 
             <!-- Modal Editar Producto -->
-            <!-- Modal para editar producto -->
             <div class="modal fade" id="editProductoModal" tabindex="-1" aria-labelledby="editProductoModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -934,12 +933,18 @@
                                         required>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="editIvaProducto" class="form-label">IVA</label>
+                                    <input type="number" class="form-control" id="editIvaProducto" name="iva" required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="editCategoriaProducto" class="form-label">Categoría</label>
                                     <select class="form-select" id="editCategoriaProducto" name="categoriaId" required>
+                                        <option value="1">Categoría 1</option>
+                                        <option value="2">Categoría 2</option>
+                                        <option value="3">Categoría 3</option>
                                         <!-- Opciones de categorías se llenarán dinámicamente desde JavaScript -->
                                     </select>
                                 </div>
-                                <!-- Puedes agregar campos adicionales como stock aquí -->
                             </form>
                         </div>
                         <div class="modal-footer">

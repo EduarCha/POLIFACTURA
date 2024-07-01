@@ -66,11 +66,11 @@
     },
     {
       "id": "1719774388678",
-      "nombre": "pan",
+      "nombre": "pan grande",
       "descripcion": "30 gr",
-      "precio": 1000,
-      "iva": 0,
-      "categoriaId": 1
+      "precio": "1000",
+      "iva": "19",
+      "categoriaId": "1"
     },
     {
       "id": 1719805944392,
@@ -79,6 +79,14 @@
       "precio": 3000,
       "iva": 5,
       "categoriaId": 1
+    },
+    {
+      "id": 1719806595294,
+      "nombre": "panela",
+      "descripcion": "400 gr",
+      "precio": 3000,
+      "iva": 0,
+      "categoriaId": 2
     }
   ],
   "categorias": [

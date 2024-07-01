@@ -228,14 +228,38 @@ document.getElementById('createProductButton').addEventListener('click', functio
 
 
 
-// Evento al hacer clic en Guardar Cambios en el formulario de edición
-
 // Obtener referencia a elementos del DOM
 const inputEditProductId = document.getElementById('editProductId');
 const buttonEditProduct = document.getElementById('buttonEditProduct');
 const editProductoForm = document.getElementById('editProductoForm');
 const buttonSaveChanges = document.getElementById('buttonSaveChanges');
 const editModal = new bootstrap.Modal(document.getElementById('editProductoModal'));
+
+// Función para cargar categorías
+function cargarCategorias() {
+    fetch('http://localhost:3000/categorias')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(categorias => {
+            const categoriaSelect = document.getElementById('editCategoriaProducto');
+            categoriaSelect.innerHTML = ''; // Limpiar opciones existentes
+
+            categorias.forEach(categoria => {
+                const option = document.createElement('option');
+                option.value = categoria.id;
+                option.textContent = categoria.nombre;
+                categoriaSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar las categorías:', error);
+            // Aquí puedes manejar el error, como mostrar un mensaje al usuario
+        });
+}
 
 // Función para cargar los datos del producto en el formulario de edición
 function cargarProductoParaEdicion(productoId) {
@@ -252,9 +276,11 @@ function cargarProductoParaEdicion(productoId) {
             editProductoForm.elements['nombre'].value = producto.nombre;
             editProductoForm.elements['descripcion'].value = producto.descripcion;
             editProductoForm.elements['precio'].value = producto.precio;
+            editProductoForm.elements['iva'].value = producto.iva; // Asignar valor de IVA
             editProductoForm.elements['categoriaId'].value = producto.categoriaId; // Asignar valor de categoriaId
 
-            // Mostrar el modal de edición de producto
+            // Cargar categorías y luego mostrar el modal de edición de producto
+            cargarCategorias();
             editModal.show();
         })
         .catch(error => {
@@ -303,6 +329,7 @@ buttonSaveChanges.addEventListener('click', function () {
         // Aquí puedes manejar el error, como mostrar un mensaje al usuario
     });
 });
+
 
 
 
