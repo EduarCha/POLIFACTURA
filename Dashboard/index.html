@@ -242,32 +242,6 @@
 
         </div>
 
-        <!--Card productos
-                    <div class="card mb-3 w-100 ">
-                        <div class="row g-0 text-center">
-                            <div class="col-2">
-                                <img src="img/undraw_Photo.png" class="img-fluid rounded img-fluidcss" alt="...">
-                            </div>
-
-                            <div class="col-5">
-                                <p class="1h-1 text-start">Producto 1 CAR</p>
-                            </div>
-
-                            <div class="col-5">
-                                <h5 class="card-title text-end">$ 10.000</h5>
-                                <div class="input-group text-end">
-                                    <button class="btn btn-outline-danger">-</button>
-                                    <input id="cant" type="text" class="form-control text-center" placeholder="0">
-                                    <button class="btn btn-outline-success">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>-->
-
-        <!--
-            Historial
-        -->
         <div id="id_his" class="container-ked-v">
 
             <!--Navbar filtros historial -->
@@ -753,17 +727,19 @@
                                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#addProductoModal">Nuevo Producto</button>
                             </li>
+
                             <li class="nav-item">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" id="editProductId"
                                         placeholder="Id producto a editar" aria-label="Recipient's username"
                                         aria-describedby="button-addon2">
                                     <button type="button" id="buttonEditProduct" class="btn btn-outline-primary me-2"
-                                        data-bs-toggle="modal" data-bs-target="#editProductoModal"><i
-                                            class='bx bx-edit'></i></button>
+                                        data-bs-toggle="modal" data-bs-target="#editProductoModal"
+                                        aria-label="Editar producto">
+                                        <i class='bx bx-edit'></i>
+                                    </button>
                                 </div>
                             </li>
-
 
 
                             <li class="nav-item">
@@ -809,22 +785,21 @@
 
                     <hr>
 
-                    <!-- Información de Productos -->
                     <div class="container mt-5">
                         <h2 class="mb-4">Lista de Productos</h2>
-                        <table class="table table-bordered">
-                            <thead class="thead-dark">
+                        <table class="table table-striped mt-3">
+                            <thead>
                                 <tr>
-                                    <th>ID Producto</th>
-                                    <th>Codigo/Sku</th>
-                                    <th>Producto</th>
-                                    <th>Existencias</th>
-                                    <th>Costo</th>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
                                     <th>Precio</th>
+                                    <th>IVA</th>
+                                    <th>Categoría</th>
                                 </tr>
                             </thead>
                             <tbody id="ProductosTableBody">
-                                <!-- Los datos se cargarán aquí -->
+                                <!-- Los productos se cargarán aquí -->
                             </tbody>
                         </table>
                     </div>

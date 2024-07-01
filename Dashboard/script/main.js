@@ -303,3 +303,69 @@ buttonSaveChanges.addEventListener('click', function () {
         // Aquí puedes manejar el error, como mostrar un mensaje al usuario
     });
 });
+
+
+
+
+// Obtener referencia al cuerpo de la tabla 
+const productosTableBody = document.getElementById('ProductosTableBody'); 
+ 
+// Variable para almacenar las categorías 
+let categorias = []; 
+ 
+// Función para cargar los datos de productos desde el servidor JSON 
+function cargarProductosDesdeJSON() { 
+    // Primero, cargamos las categorías 
+    fetch('http://localhost:3000/categorias') 
+        .then(response => { 
+            if (!response.ok) { 
+                throw new Error('Network response was not ok'); 
+            } 
+            return response.json(); 
+        }) 
+        .then(data => { 
+            categorias = data; 
+            // Luego, cargamos los productos 
+            return fetch('http://localhost:3000/productos'); 
+        }) 
+        .then(response => { 
+            if (!response.ok) { 
+                throw new Error('Network response was not ok'); 
+            } 
+            return response.json(); 
+        }) 
+        .then(productos => { 
+            // Limpiar el cuerpo de la tabla antes de insertar nuevos datos 
+            productosTableBody.innerHTML = ''; 
+ 
+            // Iterar sobre cada producto y agregar una fila a la tabla 
+            productos.forEach(producto => { 
+                const fila = ` 
+                    <tr> 
+                        <td>${producto.id}</td> 
+                        <td>${producto.nombre}</td> 
+                        <td>${producto.descripcion}</td> 
+                        <td>${producto.precio}</td> 
+                        <td>${producto.iva}</td> 
+                        <td>${obtenerNombreCategoria(producto.categoriaId)}</td> 
+                    </tr> 
+                `; 
+                productosTableBody.innerHTML += fila; 
+            }); 
+        }) 
+        .catch(error => { 
+            console.error('Error al cargar los productos:', error); 
+            // Aquí puedes manejar el error, como mostrar un mensaje al usuario 
+        }); 
+} 
+ 
+// Función para obtener el nombre de la categoría basado en su ID 
+function obtenerNombreCategoria(categoriaId) { 
+    const categoria = categorias.find(cat => cat.id == categoriaId); // Cambiado a comparación suelta (==) para manejar tipos de datos mixtos 
+    return categoria ? categoria.nombre : 'Sin categoría'; 
+} 
+ 
+// Llamar a la función para cargar productos al cargar la página 
+document.addEventListener('DOMContentLoaded', () => { 
+    cargarProductosDesdeJSON(); 
+});

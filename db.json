@@ -65,11 +65,19 @@
       "categoriaId": 3
     },
     {
-      "id": 1719774388678,
+      "id": "1719774388678",
       "nombre": "pan",
       "descripcion": "30 gr",
       "precio": 1000,
       "iva": 0,
+      "categoriaId": 1
+    },
+    {
+      "id": 1719805944392,
+      "nombre": "chocolate corona",
+      "descripcion": "500gr",
+      "precio": 3000,
+      "iva": 5,
       "categoriaId": 1
     }
   ],
