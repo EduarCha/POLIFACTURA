@@ -1,0 +1,10 @@
+Alternativa con npx
+Si prefieres no instalar json-server globalmente, puedes usar npx para ejecutarlo:
+
+sh
+Copiar código
+
+npx json-server --watch db.json --port 3000
+Esto ejecutará json-server sin necesidad de tenerlo instalado en tu proyecto.
+
+Después de estos pasos, deberías poder interactuar con json-server y tu archivo db.json como se espera.
