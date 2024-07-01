@@ -87,18 +87,20 @@
             <div class="header-pos justify-content-center align-items-center">
 
                 <div class="col-header">
-                    <!--code-->
-                    <div class="input-group">
-                        <div class="input-group-text" id="btnGroupAddon">POS</div>
-                        <input type="text" class="form-control" placeholder="Buscar producto"
-                            aria-label="Input group example" aria-describedby="btnGroupAddon">
-                        <button class="btn btn-outline-secondary" aria-label="Buscar" type="submit" onclick="buscar()">
-                            <i class="bx bx-search"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary" aria-label="Buscar" type="submit">
-                            <i class='bx bx-grid-alt'></i>
-                        </button>
+
+                    <div class="container">
+                        <div class="input-group my-3">
+                            <div class="input-group-text" id="btnGroupAddon">POS</div>
+                            <input type="text" class="form-control" id="buscarProductoInput"
+                                placeholder="Buscar producto" aria-label="Input group example"
+                                aria-describedby="btnGroupAddon">
+                            <button class="btn btn-outline-secondary" aria-label="Buscar" type="button"
+                                onclick="buscar()">
+                                <i class="bx bx-search"></i>
+                            </button>
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="col-header-l">
