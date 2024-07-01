@@ -1,4 +1,4 @@
-Referencia APA para el Sistema de Ventas POS Polifactura
+Sistema de Ventas POS Polifactura
 Descripción del Sistema de Ventas POS Polifactura
 El Sistema de Ventas POS Polifactura está diseñado para la facturación y se irá ampliando para incluir más negocios en el futuro.
 
