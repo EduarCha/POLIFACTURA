@@ -1,39 +1,5 @@
-// pos.js
-export function cargarProductos() {
-    return fetch('./docs/productos.json')  // Ajuste de ruta
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => data)
-        .catch(error => {
-            console.error('Error loading products:', error);
-            return [];  // Devolver un array vacío u otro valor por defecto en caso de error
-        });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const pinInputs = document.querySelectorAll('.pin-input');
-
-    pinInputs.forEach((input, index) => {
-        input.addEventListener('input', function () {
-            if (input.value.length === 1 && index < pinInputs.length - 1) {
-                pinInputs[index + 1].focus();
-            }
-        });
-
-        input.addEventListener('keydown', function (e) {
-            if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
-                pinInputs[index - 1].focus();
-            }
-        });
-    });
-});
-
-
-document.getElementById('openModalBtn').addEventListener('click', function() {
+//validar pagos 
+document.getElementById('openModalBtn').addEventListener('click', function () {
     var amountInput = document.getElementById('amountInput').value;
     if (amountInput.trim() === "") {
         alert("Por favor, ingrese un monto.");
@@ -42,19 +8,32 @@ document.getElementById('openModalBtn').addEventListener('click', function() {
     }
 });
 
-/*/en acrear usuarios deja ecribir solo letras mayuscukay numeros 
-function filterInput(event) {
-    const input = event.target;
-    const value = input.value;
-    const filteredValue = value.replace(/[^0-9A-Z]/g, '');
-    if (value !== filteredValue) {
-        alert('Solo se permiten letras mayúsculas y números.');
-    }
-    input.value = filteredValue;
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-    const inputDocumento = document.getElementById('inputDocumento');
-    inputDocumento.addEventListener('input', filterInput);
-});
-*/
+// Código para cargar productos
+const url = 'http://localhost:3000/productos'; // URL de tu endpoint de productos en JSON Server
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const productosContainer = document.getElementById('productos-container');
+
+        // Itera sobre cada producto y crea el HTML dinámico
+        data.forEach(producto => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.style.margin = '3px';
+            card.innerHTML = `
+                <img src="./img/undraw_Photo.png" class="card-img-top" alt="Imagen del producto">
+                <div class="card-body">
+                    <p>${producto.nombre}
+                        <i data-bs-toggle="modal" data-bs-target="#exampleModal" class='bx bxs-info-circle'></i>
+                    </p>
+                    <h5 class="card-title">Cop $ ${producto.precio}</h5>
+                </div>
+            `;
+            productosContainer.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching productos:', error);
+    });

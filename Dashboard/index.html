@@ -129,20 +129,11 @@
 
             <div class="container-ked-h cssPos">
 
+
                 <!--productos -->
-                <div class="productos-pos">
 
-                    <div class="card">
-                        <img src="img/undraw_Photo.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>Producto 1
-                                <i data-bs-toggle="modal" data-bs-target="#exampleModal" class='bx bxs-info-circle'></i>
-                            </p>
-                            <h5 class="card-title">Cop $ 10.000</h5>
-
-                        </div>
-                    </div>
-
+                <div class="productos-pos" id="productos-container">
+                    <!-- Aquí se cargarán los productos dinámicamente -->
                 </div>
 
 
@@ -907,7 +898,7 @@
 
             <!-- Modal Editar Producto -->
             <div class="modal fade" id="editProductoModal" tabindex="-1" aria-labelledby="editProductoModalLabel"
-                aria-hidden="true">
+                aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">

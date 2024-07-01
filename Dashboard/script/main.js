@@ -142,40 +142,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// Leer orden de productos de tabla 
-import { cargarProductos } from './pos.js';
-
-document.addEventListener('DOMContentLoaded', function () {
-  const productContainer = document.getElementById('productContainer');
-
-
-  cargarProductos().then(data => {
-    productContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar los datos
-    data.slice(0, 300).forEach(product => {
-      const cardHTML = `
-                <div class="card mb-3 w-100">
-                    <div class="row g-0 text-center">
-                        <div class="col-2">
-                            <img src="${product.imageUrl}" class="img-fluid rounded img-fluidcss" alt="...">
-                        </div>
-                        <div class="col-5">
-                            <p class="1h-1 text-start">${product.name}</p>
-                        </div>
-                        <div class="col-5">
-                            <h5 class="card-title text-end">$ ${product.price}</h5>
-                            <div class="input-group text-end">
-                                <button class="btn btn-outline-danger">-</button>
-                                <input id="cant" type="text" class="form-control text-center" placeholder="0">
-                                <button class="btn btn-outline-success">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-      productContainer.insertAdjacentHTML('beforeend', cardHTML);
-    });
-  });
-});
-
 
 //Insertar productos
 document.getElementById('createProductButton').addEventListener('click', function() {

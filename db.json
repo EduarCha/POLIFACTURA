@@ -87,6 +87,14 @@
       "precio": 3000,
       "iva": 0,
       "categoriaId": 2
+    },
+    {
+      "id": 1719809747480,
+      "nombre": "HUEVOS",
+      "descripcion": "X30",
+      "precio": 30000,
+      "iva": 19,
+      "categoriaId": 2
     }
   ],
   "categorias": [
