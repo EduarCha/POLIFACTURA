@@ -11,90 +11,84 @@
   ],
   "productos": [
     {
-      "id": "1",
-      "nombre": "Producto 1",
-      "descripcion": "Descripción del Producto 0 1",
-      "precio": "10000"
+      "id": "1719774388678",
+      "nombre": "Arroz",
+      "descripcion": "1 kg",
+      "precio": 5000,
+      "iva": 19,
+      "categoriaId": 1
     },
     {
-      "id": "2",
-      "nombre": "Producto 2",
-      "descripcion": "Descripción del Producto 2",
+      "id": "1719805944392",
+      "nombre": "Frijoles",
+      "descripcion": "1 kg",
+      "precio": 6000,
+      "iva": 19,
+      "categoriaId": 1
+    },
+    {
+      "id": "1719806595294",
+      "nombre": "Aceite",
+      "descripcion": "500 ml",
+      "precio": 8000,
+      "iva": 19,
+      "categoriaId": 2
+    },
+    {
+      "id": "1719809747480",
+      "nombre": "Leche",
+      "descripcion": "1 litro",
+      "precio": 5000,
+      "iva": 19,
+      "categoriaId": 2
+    },
+    {
+      "id": "1719811278237",
+      "nombre": "Huevos",
+      "descripcion": "Docena",
+      "precio": 12000,
+      "iva": 19,
+      "categoriaId": 3
+    },
+    {
+      "id": "1719812296942",
+      "nombre": "Pollo",
+      "descripcion": "1 kg",
       "precio": 15000,
       "iva": 19,
-      "categoriaId": 1
-    },
-    {
-      "id": "3",
-      "nombre": "Producto 3",
-      "descripcion": "Descripción del Producto 3",
-      "precio": 20000,
-      "iva": 19,
-      "categoriaId": 1
-    },
-    {
-      "id": "4",
-      "nombre": "Producto 4",
-      "descripcion": "Descripción del Producto 4",
-      "precio": 25000,
-      "iva": 19,
-      "categoriaId": 2
-    },
-    {
-      "id": "5",
-      "nombre": "Producto 5",
-      "descripcion": "Descripción del Producto 5",
-      "precio": 25000,
-      "iva": 19,
-      "categoriaId": 2
-    },
-    {
-      "id": "6",
-      "nombre": "Producto 6",
-      "descripcion": "Descripción del Producto 6",
-      "precio": 25000,
-      "iva": 19,
       "categoriaId": 3
     },
     {
-      "id": "7",
-      "nombre": "Producto 7",
-      "descripcion": "Descripción del Producto 7",
-      "precio": 25000,
-      "iva": 19,
-      "categoriaId": 3
-    },
-    {
-      "id": "1719774388678",
-      "nombre": "pan grande",
-      "descripcion": "30 gr",
-      "precio": "1000",
+      "id": "1719813389750",
+      "nombre": "Tomate",
+      "descripcion": "500 gr",
+      "precio": "3000",
       "iva": "19",
-      "categoriaId": "1"
+      "categoriaId": "2"
     },
     {
-      "id": 1719805944392,
-      "nombre": "chocolate corona",
-      "descripcion": "500gr",
-      "precio": 3000,
-      "iva": 5,
+      "id": "1719814225975",
+      "nombre": "Cebolla",
+      "descripcion": "500 gr",
+      "precio": "2500",
+      "iva": "19",
+      "categoriaId": "2"
+    },
+    {
+      "id": "1719815448223",
+      "nombre": "Pan",
+      "descripcion": "Unidad",
+      "precio": 1500,
+      "iva": 19,
       "categoriaId": 1
     },
     {
-      "id": 1719806595294,
-      "nombre": "panela",
-      "descripcion": "400 gr",
-      "precio": 3000,
-      "iva": 0,
-      "categoriaId": 2
-    },
-    {
-      "id": 1719809747480,
-      "nombre": "HUEVOS",
-      "descripcion": "X30",
-      "precio": 30000,
+      "id": "1719816561132",
+      "nombre": "Pasta",
+      "descripcion": "500 gr",
+      "precio": 3500,
       "iva": 19,
-      "categoriaId": 2
+      "categoriaId": 1
     }
   ],
   "categorias": [
