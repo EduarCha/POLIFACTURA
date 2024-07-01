@@ -114,27 +114,25 @@
       "clienteId": 1,
       "productos": [
         {
-          "productoId": 1,
-          "cantidad": 2
+          "id_producto": "1719774388678",
+          "nombre": "Arroz",
+          "cantidad": 2,
+          "precio_unitario": 5000,
+          "impuesto": 950,
+          "precio_total": 10950
         },
         {
-          "productoId": 3,
-          "cantidad": 1
+          "id_producto": "1719806595294",
+          "nombre": "Aceite",
+          "cantidad": 1,
+          "precio_unitario": 8000,
+          "impuesto": 1520,
+          "precio_total": 9520
         }
       ],
-      "subtotal": 40000,
-      "fecha": "2024-06-30"
-    },
-    {
-      "id": "2",
-      "clienteId": 2,
-      "productos": [
-        {
-          "productoId": 2,
-          "cantidad": 1
-        }
-      ],
-      "subtotal": 15000,
+      "subtotal": 18000,
+      "impuestos": 2470,
+      "total": 20470,
       "fecha": "2024-06-30"
     },
     {
@@ -142,27 +140,25 @@
       "clienteId": 3,
       "productos": [
         {
-          "productoId": 4,
-          "cantidad": 1
+          "id_producto": "1719809747480",
+          "nombre": "Leche",
+          "cantidad": 1,
+          "precio_unitario": 5000,
+          "impuesto": 950,
+          "precio_total": 5950
         },
         {
-          "productoId": 5,
-          "cantidad": 1
+          "id_producto": "1719811278237",
+          "nombre": "Huevos",
+          "cantidad": 1,
+          "precio_unitario": 12000,
+          "impuesto": 2280,
+          "precio_total": 14280
         }
       ],
-      "subtotal": 50000,
-      "fecha": "2024-06-30"
-    },
-    {
-      "id": "4",
-      "clienteId": 4,
-      "productos": [
-        {
-          "productoId": 6,
-          "cantidad": 3
-        }
-      ],
-      "subtotal": 75000,
+      "subtotal": 17000,
+      "impuestos": 3230,
+      "total": 20230,
       "fecha": "2024-06-30"
     },
     {
@@ -170,11 +166,17 @@
       "clienteId": 5,
       "productos": [
         {
-          "productoId": 7,
-          "cantidad": 1
+          "id_producto": "1719813389750",
+          "nombre": "Tomate",
+          "cantidad": 1,
+          "precio_unitario": 3000,
+          "impuesto": 570,
+          "precio_total": 3570
         }
       ],
-      "subtotal": 25000,
+      "subtotal": 3000,
+      "impuestos": 570,
+      "total": 3570,
       "fecha": "2024-06-30"
     }
   ],

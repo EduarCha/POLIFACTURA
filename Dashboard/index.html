@@ -116,7 +116,8 @@
                         </div>
                         <div class="col-6">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-outline-danger " type="button" aria-label="Delete">
+                                <button id="clear-order" class="btn btn-outline-danger" type="button"
+                                    aria-label="Delete">
                                     <i class='bx bxs-trash'></i>
                                 </button>
                             </div>
@@ -132,45 +133,72 @@
             <div class="container-ked-h cssPos">
 
 
-                <!--productos -->
-
+                <!--productos pos -->
                 <div class="productos-pos" id="productos-container">
-                    <!-- Aquí se cargarán los productos dinámicamente -->
+                    <!-- Aquí se cargarán los productos dinámicamente en una card -->
                 </div>
 
 
-                <!--menu derecho  CARRITO-->
+                <!--menu derecho  Carrito de ordenes-->
                 <div class="sidebar-R">
 
                     <div class="product-container-scroll">
-                        <div class="product-container" id="productContainer">
-                            <!-- Las tarjetas de productos se cargarán aquí -->
+                        <div class="product-container" id="productContainer-ord">
+                            <!-- Los productos se cargarán aquí dinamicamente -->
+                            <div class="card w-100">
+                                <div class="d-flex">
+                                    <h5 id="nomProducto" class="text-center p-2">Descripción</h5>
+                                    <div class="input-group">
+                                        <button id="id_agregar" class="btn btn-outline-secondary"
+                                            type="button">+</button>
+                                        <input id="id_cantidad" type="text" class="form-control" placeholder="0"
+                                            aria-label="Recipient's username with two button addons">
+                                        <button id="id_restar" class="btn btn-outline-secondary"
+                                            type="button">-</button>
+                                    </div>
+                                    <h5 id="valor_total" class="text-center p-2">Descripción</h5>
+                                </div>
+
+                            </div>
                         </div>
+                        
                     </div>
 
-                    <hr>
 
 
-                    <div class="card w-100 m-5px">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <p>Base: 0</p>
-                            </li>
-                            <li class="list-group-item">
-                                <p>Iva: 0</p>
-                            </li>
-                            <li class="list-group-item">
-                                <h5>Total: 0</h5>
-                            </li>
-                        </ul>
-                        <div class="group">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Recibido: $</span>
-                                <input type="text" class="form-control" id="amountInput"
-                                    aria-label="Amount (to the nearest dollar)">
-                                <button type="button" class="btn btn-outline-primary"
-                                    id="openModalBtn">Continuar</button>
-                            </div>
+
+                    <!--Tabla impuestos de ordenados -->
+                    <table class="table table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Base</td>
+                                <td id="idsuntotal">0</td>
+                            </tr>
+                            <tr>
+                                <td>Iva</td>
+                                <td id="idiva">0</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td id="total">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!-- div para calcular pagos de facturar-->
+                    <div class="group">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Recibido: $</span>
+                            <input type="text" class="form-control" id="amountInput"
+                                aria-label="Amount (to the nearest dollar)">
+                            <button type="button" class="btn btn-outline-primary" id="openModalBtn">Continuar</button>
                         </div>
                     </div>
 
@@ -690,7 +718,7 @@
                                     data-bs-target="#addProductoModal">Nuevo Producto</button>
                             </li>
 
-                            
+
 
                             <li class="nav-item">
                                 <div class="input-group mb-3">
@@ -715,12 +743,12 @@
                                 <button type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal"
                                     data-bs-target="#addPrintModal">Nueva Impresora</button>
                             </li>
-                           
+
                         </ul>
                     </div>
                 </div>
             </nav>
-            
+
 
 
             <!--container y scroll-->

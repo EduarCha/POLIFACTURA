@@ -1,77 +1,26 @@
-EL SISTEMA DE VENTAS POS
-Es para facturación, inventario inicialmente parapolloparreño y se va ir agregendo negociós
+Referencia APA para el Sistema de Ventas POS Polifactura
+Descripción del Sistema de Ventas POS Polifactura
+El Sistema de Ventas POS Polifactura está diseñado para la facturación y se irá ampliando para incluir más negocios en el futuro.
 
---datos para no perderlos--
-/*
-logOut.addEventListener('click', async function () {
-  // redirigr al apnel de administrador
-  await signOut(auth)
-  window.location.href = '../index.html'
-});
+Pasos para Pruebas Frontend
+1. Clonar o descargar el proyecto.
 
-document.getElementById("ordBtn").addEventListener("click", function () {
-  urlPag = './view/_ord_pos.html'
-  newPag()
-});
+2. Abrir el proyecto con Visual Studio Code.
 
+3. Ejecutar el proyecto con Live Server. Asegúrese de tener Live Server instalado.
 
-pagina que carga por defecto
-urlPag = './view/_fac_pos.html'
+4. AlcCargar la página inicial. Regístrese primero y luego inicie sesión en el sistema.
 
-// Ruta al archivo HTML externo que quieres cargar
-const urlHtmlExterno = urlPag;
+5. Registro y autenticación. El registro y la autenticación se realizan a través de Firebase, que puede ser modificado si se prefiere.
 
-// Usar fetch para obtener el contenido del archivo HTML externo
-fetch(urlHtmlExterno)
-  .then(response => {
-    // Verificar si la solicitud fue exitosa (status 200)
-    if (response.ok) {
-      return response.text(); // Obtener el contenido del archivo como texto
-    }
-    throw new Error('Error al cargar el archivo HTML externo');
-  })
-  .then(html => {
-    // Insertar el contenido HTML dentro del div
-    divContenidoExterno.innerHTML = html;
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+6. Las ablas en JSON para pruebas frontend. Copie el siguiente código para iniciar el servidor y utilice npx para ejecutarlo desde la terminal de Visual Studio Code. En Windows, use Ctrl + Ñ para abrir la terminal y luego vuelva a la pagina web y use Ctrl + R para refrescar la página y cargar los productos, que pueden ser modificados desde los ajustes.
 
 
+Copiar código para iniciar el servidor 
+npx json-server --watch db.json --port 3000
 
+7. Autores. (2024). Sistema de Ventas POS Polifactura.
 
-const cantidad = document.getElementById('cantidad')
-const sumar = document.getElementById('dis')
-const restar = document.getElementById('add')
-const borrar = document.getElementById('borrar')
-const valor = document.getElementById('valor')
-
-let numero = 0;
-let precio = 10;
-
-sumar.addEventListener('click', () => {
-  if (numero == 0) { } else {
-    numero--;
-    suma();
-  }
-})
-
-restar.addEventListener('click', () => {
-  numero++;
-  suma();
-})
-
-borrar.addEventListener('click', () => {
-  numero = 0;
-  cantidad.innerHTML = numero;
-})
-
-function suma() {
-  cantidad.innerHTML = numero;
-  var sum = numero * precio;
-  valor.innerHTML = "$ "+ sum;
-}*/
-
-
-
+Eduar chaves
+Alexis 
+Luis
