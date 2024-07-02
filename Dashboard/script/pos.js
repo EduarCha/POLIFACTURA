@@ -1,4 +1,4 @@
-//validar pagos 
+// Validar pagos
 document.getElementById('openModalBtn').addEventListener('click', function () {
     var amountInput = document.getElementById('amountInput').value;
     if (amountInput.trim() === "") {
@@ -8,12 +8,10 @@ document.getElementById('openModalBtn').addEventListener('click', function () {
     }
 });
 
-
-
 // Función para cargar productos y mostrarlos en el contenedor
-const url = 'http://localhost:3000/productos';
+const urlProductos = 'http://localhost:3000/productos';
 
-fetch(url)
+fetch(urlProductos)
     .then(response => response.json())
     .then(data => {
         const productosContainer = document.getElementById('productos-container');
@@ -32,7 +30,10 @@ fetch(url)
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group" style="width: 100%;">
-                                <button type="button" class="btn btn-sm btn-outline-secondary w-100" data-precio="${producto.precio}">Cop $ ${producto.precio}</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary w-100" 
+                                    data-nombre="${producto.nombre}" data-precio="${producto.precio}">
+                                    Cop $ ${producto.precio}
+                                </button>
                             </div>
                         </div>
                         <h5 class="card-title">${producto.nombre}</h5>
@@ -44,7 +45,10 @@ fetch(url)
                 // Agregar evento click al botón generado
                 const btn = card.querySelector('button');
                 btn.addEventListener('click', () => {
-                    alertProductoAgregado(producto.precio);
+                    const nombre = btn.getAttribute('data-nombre');
+                    const precio = parseFloat(btn.getAttribute('data-precio'));
+                    alertProductoAgregado(nombre, precio);
+                    agregarProductoAOrden({ nombre, precio });
                 });
             });
         }
@@ -54,7 +58,7 @@ fetch(url)
             const input = document.getElementById('buscarProductoInput');
             const filtro = input.value.toUpperCase();
 
-            fetch(url)
+            fetch(urlProductos)
                 .then(response => response.json())
                 .then(data => {
                     const productosFiltrados = data.filter(producto => producto.nombre.toUpperCase().includes(filtro));
@@ -70,29 +74,64 @@ fetch(url)
         const input = document.getElementById('buscarProductoInput');
         input.addEventListener('input', buscar);
 
-
-        function alertProductoAgregado(precio) {
+        function alertProductoAgregado(nombre, precio) {
             // Reproducir el sonido
             const beepSound = document.getElementById('beepSound');
             beepSound.play();
 
-            // Mostrar la alerta
-            alert(`Precio del producto: $ ${precio}`);
-
-            // Cerrar la alerta después de 3 segundos
-            setTimeout(function () {
-                const alertBox = document.querySelector('.alert'); // Asegúrate de que '.alert' sea el selector correcto
-                if (alertBox) {
-                    alertBox.style.display = 'none';
-                }
-            }, 3000); // 3000 milisegundos = 3 segundos
+            // Mostrar la alerta con el nombre y el precio del producto
+            alert(`Producto agregado: ${nombre}\nPrecio del producto: $ ${precio}`);
         }
 
-
+        function agregarProductoAOrden(producto) {
+            // Insertar datos en la orden
+            fetch('http://localhost:3000/ordenes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nombre: producto.nombre,
+                    precio: producto.precio.toFixed(2), // Asumiendo que producto.precio es un número
+                }),
+            })
+                .then(response => response.json())
+                .then(data => console.log('Producto agregado a la orden:', data))
+                .catch(error => console.error('Error al agregar producto a la orden:', error));
+        }
     })
     .catch(error => {
         console.error('Error fetching productos:', error);
     });
 
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const productContainer = document.getElementById('productContainer-ord');
+    const clearOrderButton = document.getElementById('clear-order');
+
     
+
+
+
+    // Función para eliminar todas las órdenes
+    function clearOrders() {
+        fetch('http://localhost:3000/ordenes', {
+            method: 'DELETE'
+        })
+            .then(() => {
+                // Limpiar el contenedor de productos
+                productContainer.innerHTML = '';
+                console.log('Todas las órdenes han sido eliminadas.');
+            })
+            .catch(error => console.error('Error al eliminar las órdenes:', error));
+    }
+
+  
+
+    // Añadir evento al botón de borrar órdenes
+    clearOrderButton.addEventListener('click', clearOrders);
+
+
+});
+

@@ -52,11 +52,11 @@
     },
     {
       "id": "1719812296942",
-      "nombre": "Pollo",
+      "nombre": "Pollo negro",
       "descripcion": "1 kg",
-      "precio": 15000,
-      "iva": 19,
-      "categoriaId": 3
+      "precio": "15000",
+      "iva": "19",
+      "categoriaId": "1"
     },
     {
       "id": "1719813389750",
@@ -91,12 +91,28 @@
       "categoriaId": "3"
     },
     {
-      "id": 1719866528477,
+      "id": "1719866528477",
       "nombre": "Munutos",
       "descripcion": "unidad",
       "precio": 300,
       "iva": 0,
       "categoriaId": 2
+    },
+    {
+      "id": "1719889541144",
+      "nombre": "huevos aa",
+      "descripcion": "x30 uni",
+      "precio": 40000,
+      "iva": 0,
+      "categoriaId": 1
+    },
+    {
+      "id": "ed5f",
+      "nombre": "arroz chino",
+      "descripcion": "400 gr",
+      "precio": "20000",
+      "iva": "0",
+      "categoriaId": "3"
     }
   ],
   "categorias": [
@@ -118,74 +134,34 @@
   ],
   "ordenes": [
     {
-      "id": "1",
-      "clienteId": 1,
-      "productos": [
-        {
-          "id_producto": "1719774388678",
-          "nombre": "Arroz",
-          "cantidad": 2,
-          "precio_unitario": 5000,
-          "impuesto": 950,
-          "precio_total": 10950
-        },
-        {
-          "id_producto": "1719806595294",
-          "nombre": "Aceite",
-          "cantidad": 1,
-          "precio_unitario": 8000,
-          "impuesto": 1520,
-          "precio_total": 9520
-        }
-      ],
-      "subtotal": 18000,
-      "impuestos": 2470,
-      "total": 20470,
-      "fecha": "2024-06-30"
+      "id": "ab31",
+      "nombre": "Frijoles",
+      "precio": "6000.00"
     },
     {
-      "id": "3",
-      "clienteId": 3,
-      "productos": [
-        {
-          "id_producto": "1719809747480",
-          "nombre": "Leche",
-          "cantidad": 1,
-          "precio_unitario": 5000,
-          "impuesto": 950,
-          "precio_total": 5950
-        },
-        {
-          "id_producto": "1719811278237",
-          "nombre": "Huevos",
-          "cantidad": 1,
-          "precio_unitario": 12000,
-          "impuesto": 2280,
-          "precio_total": 14280
-        }
-      ],
-      "subtotal": 17000,
-      "impuestos": 3230,
-      "total": 20230,
-      "fecha": "2024-06-30"
+      "id": "1ba1",
+      "nombre": "Aceite",
+      "precio": "8000.00"
     },
     {
-      "id": "5",
-      "clienteId": 5,
-      "productos": [
-        {
-          "id_producto": "1719813389750",
-          "nombre": "Tomate",
-          "cantidad": 1,
-          "precio_unitario": 3000,
-          "impuesto": 570,
-          "precio_total": 3570
-        }
-      ],
-      "subtotal": 3000,
-      "impuestos": 570,
-      "total": 3570,
-      "fecha": "2024-06-30"
+      "id": "3dd9",
+      "nombre": "Arroz",
+      "precio": "5000.00"
+    },
+    {
+      "id": "3d59",
+      "nombre": "Tomate",
+      "precio": "3000.00"
+    },
+    {
+      "id": "fce8",
+      "nombre": "Tomate",
+      "precio": "3000.00"
+    },
+    {
+      "id": "9cc5",
+      "nombre": "Arroz",
+      "precio": "5000.00"
     }
   ],
   "clientes": [

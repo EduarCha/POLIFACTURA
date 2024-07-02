@@ -386,7 +386,47 @@ function cargarProducto(producto) {
   valor_total.textContent = "$" + producto.total.toFixed(2); // Formatear el total como dinero
 }
 
+
+
 // Llamar a la función para cargar el producto al cargar la página
 window.addEventListener('DOMContentLoaded', function () {
   cargarProducto(producto);
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const apiUrl = 'http://localhost:3000/ordenes';
+
+  async function fetchOrdenes() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error al obtener los datos:', error);
+    }
+  }
+
+  function renderOrdenes(ordenes) {
+    const productContainer = document.getElementById('productContainer-ord');
+
+    ordenes.forEach(orden => {
+      const cardHtml = `
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title d-none">Orden ID: ${orden.id}</h5>
+              <p class="card-text">Producto: ${orden.nombre}</p>
+              <p class="card-text">Precio: $${orden.precio}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      productContainer.innerHTML += cardHtml;
+    });
+  }
+
+  fetchOrdenes().then(ordenes => {
+    renderOrdenes(ordenes);
+  });
 });
