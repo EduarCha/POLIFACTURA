@@ -101,32 +101,30 @@ fetch(urlProductos)
 
 
 
+//eliminar datos de ordenes 
 document.addEventListener('DOMContentLoaded', function () {
     const productContainer = document.getElementById('productContainer-ord');
     const clearOrderButton = document.getElementById('clear-order');
-
-    
-
-
 
     // Función para eliminar todas las órdenes
     function clearOrders() {
         fetch('http://localhost:3000/ordenes', {
             method: 'DELETE'
         })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se pudo borrar las órdenes');
+                }
+                return response.json();
+            })
             .then(() => {
-                // Limpiar el contenedor de productos
+                // Limpiar el contenedor de productos en la interfaz
                 productContainer.innerHTML = '';
                 console.log('Todas las órdenes han sido eliminadas.');
             })
             .catch(error => console.error('Error al eliminar las órdenes:', error));
     }
 
-  
-
     // Añadir evento al botón de borrar órdenes
     clearOrderButton.addEventListener('click', clearOrders);
-
-
 });
-

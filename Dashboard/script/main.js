@@ -157,10 +157,9 @@ document.getElementById('createProductButton').addEventListener('click', functio
     alert('Todos los campos son obligatorios.');
     return;
   }
-
   // Crear el nuevo producto
   const newProduct = {
-    id: Date.now(), // Utilizar timestamp como ID único
+    id: Date.now().toString, // Utilizar timestamp como ID único
     nombre: productName,
     descripcion: productDescription,
     precio: parseFloat(productPrice),
@@ -416,9 +415,9 @@ function renderOrdenes(ordenes) {
 
   ordenes.forEach((orden, index) => {
     const cardHtml = `
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <div class="card-body">
+    
+        <div class="card mb-1 w-100">
+          <div class="card-body ">
             <h5 class="card-title d-none">Orden ID: ${orden.id}</h5>
             <p class="card-text">Producto: ${orden.nombre}</p>
             <p class="card-text">Precio: $<span class="precio">${orden.precio}</span></p>
@@ -430,7 +429,6 @@ function renderOrdenes(ordenes) {
             <p class="card-text mt-2">Total: $<span class="total">${orden.precio}</span></p>
           </div>
         </div>
-      </div>
     `;
     productContainer.innerHTML += cardHtml;
   });
@@ -510,3 +508,132 @@ fetchOrdenes().then(ordenes => {
   renderOrdenes(ordenes);
 });
 
+
+
+//datos de factura
+
+// Función para buscar y cargar datos del cliente desde db.json
+function buscarCliente() {
+  const identificacion = document.getElementById('iduCliente').value.trim();
+
+  // Hacer una solicitud GET a la base de datos JSON para obtener el cliente
+  fetch(`http://localhost:3000/clientes/${identificacion}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Cliente no encontrado');
+      }
+      return response.json();
+    })
+    .then(clienteEncontrado => {
+      const clienteHtml = `
+        <p><strong>Nombre:</strong> ${clienteEncontrado.nombre}</p>
+        <p><strong>Dirección:</strong> ${clienteEncontrado.direccion}</p>
+        <p><strong>Teléfono:</strong> ${clienteEncontrado.telefono}</p>
+        <p><strong>Email:</strong> ${clienteEncontrado.email}</p>
+      `;
+      document.getElementById('clienteEncontrado').innerHTML = clienteHtml;
+
+      // Ocultar el botón "Buscar Cliente" y mostrar el botón "Imprimir Factura"
+      document.getElementById('buscarClienteBtn').style.display = 'none';
+      document.getElementById('imprimirFacturaBtn').style.display = 'block';
+
+      // Obtener las órdenes relacionadas con el cliente
+      return fetch(`http://localhost:3000/ordenes`);
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Órdenes no encontradas');
+      }
+      return response.json();
+    })
+    .then(ordenes => {
+      // Generar la tabla de órdenes
+      const ordenesHtml = `
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${ordenes.map(orden => `
+              <tr>
+                <td>${orden.id}</td>
+                <td>${orden.nombre}</td>
+                <td>${orden.precio}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+      document.getElementById('tablaOrdenes').innerHTML = ordenesHtml;
+
+      // Calcular el precio total
+      const totalPrecio = ordenes.reduce((total, orden) => total + parseFloat(orden.precio), 0);
+
+      // Calcular el valor base y el IVA
+      const iva = totalPrecio * 0.19;
+      const valorBase = totalPrecio - iva;
+
+      // Generar la tabla de suma de precios
+      const sumaHtml = `
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Valor Base</th>
+              <th>IVA</th>
+              <th>Total Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${valorBase.toFixed(2)}</td>
+              <td>${iva.toFixed(2)}</td>
+              <td>${totalPrecio.toFixed(2)}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+      document.getElementById('tablasuma').innerHTML = sumaHtml;
+    })
+    .catch(error => {
+      document.getElementById('clienteEncontrado').innerHTML = `<p>${error.message}</p>`;
+      document.getElementById('tablaOrdenes').innerHTML = '';
+      document.getElementById('tablasuma').innerHTML = '';
+    });
+}
+
+// Función para imprimir la factura
+function imprimirFactura() {
+  const contenidoModal = document.querySelector('.modal-content').innerHTML;
+  const ventanaImpresion = window.open('', '', 'height=600,width=800');
+  ventanaImpresion.document.write('<html><head><title>Factura</title>');
+  ventanaImpresion.document.write('</head><body >');
+  ventanaImpresion.document.write(contenidoModal);
+  ventanaImpresion.document.write('</body></html>');
+  ventanaImpresion.document.close();
+  ventanaImpresion.print();
+
+  // Obtener las órdenes relacionadas con el cliente
+  fetch(`http://localhost:3000/ordenes`, {
+    method: 'DELETE'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al borrar órdenes');
+      }
+      console.log('Órdenes borradas correctamente');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+
+// Event Listener para el botón "Buscar Cliente"
+document.getElementById('buscarClienteBtn').addEventListener('click', buscarCliente);
+
+// Event Listener para el botón "Imprimir Factura"
+document.getElementById('imprimirFacturaBtn').addEventListener('click', imprimirFactura);

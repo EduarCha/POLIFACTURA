@@ -22,9 +22,9 @@
       "id": "1719805944392",
       "nombre": "Frijoles",
       "descripcion": "1 kg",
-      "precio": 6000,
-      "iva": 19,
-      "categoriaId": 1
+      "precio": "6000",
+      "iva": "19",
+      "categoriaId": "2"
     },
     {
       "id": "1719806595294",
@@ -115,12 +115,12 @@
       "categoriaId": "3"
     },
     {
-      "id": 1719905733012,
-      "nombre": "iejjrjijijqeoqjojowjowr",
-      "descripcion": "wirjisjksfiwji",
-      "precio": 77887,
-      "iva": 0,
-      "categoriaId": 1
+      "id": "0457",
+      "nombre": "arepas x1000",
+      "descripcion": "paquete pos 1000",
+      "precio": "5395",
+      "iva": "19",
+      "categoriaId": "3"
     }
   ],
   "categorias": [
@@ -144,82 +144,32 @@
     {
       "id": "ab31",
       "nombre": "Frijoles",
-      "precio": "6000.00"
+      "precio": "0.00"
     },
     {
-      "id": "1ba1",
+      "id": "73bd",
       "nombre": "Aceite",
       "precio": "8000.00"
     },
     {
-      "id": "3dd9",
-      "nombre": "Arroz",
-      "precio": "5000.00"
-    },
-    {
-      "id": "3d59",
-      "nombre": "Tomate",
-      "precio": "3000.00"
-    },
-    {
-      "id": "fce8",
-      "nombre": "Tomate",
-      "precio": "3000.00"
-    },
-    {
-      "id": "9cc5",
-      "nombre": "Arroz",
-      "precio": "5000.00"
-    },
-    {
-      "id": "fec5",
-      "nombre": "Frijoles",
-      "precio": "6000.00"
-    },
-    {
-      "id": "5a5c",
-      "nombre": "Frijoles",
-      "precio": "6000.00"
-    },
-    {
-      "id": "04dd",
-      "nombre": "Frijoles",
-      "precio": "6000.00"
-    },
-    {
-      "id": "8f8f",
-      "nombre": "Leche",
-      "precio": "5000.00"
-    },
-    {
-      "id": "9307",
-      "nombre": "Leche",
-      "precio": "5000.00"
-    },
-    {
-      "id": "3257",
+      "id": "82b9",
       "nombre": "Aceite",
       "precio": "8000.00"
     },
     {
-      "id": "ba00",
-      "nombre": "Arroz",
-      "precio": "5000.00"
+      "id": "13c0",
+      "nombre": "Pollo negro",
+      "precio": "15000.00"
     },
     {
-      "id": "2dd2",
-      "nombre": "Leche",
-      "precio": "5000.00"
+      "id": "9e5c",
+      "nombre": "Frijoles",
+      "precio": "6000.00"
     },
     {
-      "id": "8f93",
-      "nombre": "Leche",
-      "precio": "5000.00"
-    },
-    {
-      "id": "2132",
-      "nombre": "iejjrjijijqeoqjojowjowr",
-      "precio": "77887.00"
+      "id": "adfe",
+      "nombre": "huevos aa",
+      "precio": "40000.00"
     }
   ],
   "clientes": [
