@@ -394,39 +394,119 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const apiUrl = 'http://localhost:3000/ordenes';
-
-  async function fetchOrdenes() {
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error al obtener los datos:', error);
+//odenenes
+//mutlipli[2:15 a.m.] LUIS CARLOS BACCA OCAMPO
+async function fetchOrdenes() {
+  try {
+    const response = await fetch('http://localhost:3000/ordenes');
+    if (!response.ok) {
+      throw new Error('Error al obtener las órdenes');
     }
+    const ordenes = await response.json();
+    return ordenes;
+  } catch (error) {
+    console.error('Error:', error);
+    return []; // Devolver un array vacío o manejar el error según sea necesario
   }
+}
 
-  function renderOrdenes(ordenes) {
-    const productContainer = document.getElementById('productContainer-ord');
+function renderOrdenes(ordenes) {
+  const productContainer = document.getElementById('productContainer-ord');
+  productContainer.innerHTML = ''; // Limpiar contenido previo
 
-    ordenes.forEach(orden => {
-      const cardHtml = `
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title d-none">Orden ID: ${orden.id}</h5>
-              <p class="card-text">Producto: ${orden.nombre}</p>
-              <p class="card-text">Precio: $${orden.precio}</p>
+  ordenes.forEach((orden, index) => {
+    const cardHtml = `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title d-none">Orden ID: ${orden.id}</h5>
+            <p class="card-text">Producto: ${orden.nombre}</p>
+            <p class="card-text">Precio: $<span class="precio">${orden.precio}</span></p>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-secondary btn-sm decrease" data-index="${index}">-</button>
+              <input type="number" class="form-control quantity" value="1" min="1" style="width: 60px; text-align: center; margin: 0 10px;" data-index="${index}">
+              <button class="btn btn-secondary btn-sm increase" data-index="${index}">+</button>
             </div>
+            <p class="card-text mt-2">Total: $<span class="total">${orden.precio}</span></p>
           </div>
         </div>
-      `;
-      productContainer.innerHTML += cardHtml;
-    });
-  }
-
-  fetchOrdenes().then(ordenes => {
-    renderOrdenes(ordenes);
+      </div>
+    `;
+    productContainer.innerHTML += cardHtml;
   });
+
+  // Agregar event listeners a los botones
+  document.querySelectorAll('.increase').forEach(button => {
+    button.addEventListener('click', event => {
+      const index = event.target.getAttribute('data-index');
+      const quantityInput = document.querySelectorAll('.quantity')[index];
+      const newValue = parseInt(quantityInput.value) + 1;
+      quantityInput.value = newValue;
+      updateTotal(index, ordenes[index].precio, newValue);
+      updateGlobalTotal(ordenes);
+    });
+  });
+
+  document.querySelectorAll('.decrease').forEach(button => {
+    button.addEventListener('click', event => {
+      const index = event.target.getAttribute('data-index');
+      const quantityInput = document.querySelectorAll('.quantity')[index];
+      const newValue = Math.max(parseInt(quantityInput.value) - 1, 1); // Asegurar que el valor no sea menor que 1
+      quantityInput.value = newValue;
+      updateTotal(index, ordenes[index].precio, newValue);
+      updateGlobalTotal(ordenes);
+    });
+  });
+
+  document.querySelectorAll('.quantity').forEach(input => {
+    input.addEventListener('input', event => {
+      const index = event.target.getAttribute('data-index');
+      const newValue = Math.max(parseInt(input.value), 1); // Asegurar que el valor no sea menor que 1
+      input.value = newValue;
+      updateTotal(index, ordenes[index].precio, newValue);
+      updateGlobalTotal(ordenes);
+    });
+  });
+
+  // Inicializar el total global
+  updateGlobalTotal(ordenes);
+}
+
+function updateTotal(index, precio, quantity) {
+  const totalElement = document.querySelectorAll('.total')[index];
+  const newTotal = precio * quantity;
+  totalElement.textContent = newTotal.toFixed(2);
+}
+
+function updateGlobalTotal(ordenes) {
+  const totalElements = document.querySelectorAll('.total');
+  let globalTotal = 0;
+
+  totalElements.forEach((element, index) => {
+    const price = parseFloat(ordenes[index].precio); // Obtener el precio del orden correspondiente
+    const quantity = parseInt(document.querySelectorAll('.quantity')[index].value);
+    globalTotal += price * quantity;
+  });
+
+  // Calcular el IVA (19% del total global)
+  const totaliva = globalTotal * 0.19;
+
+  // Calcular la base sin IVA
+  const sumabase = globalTotal - totaliva;
+
+  // Actualizar elementos en el HTML
+  const globalTotalElement = document.getElementById('globalTotal');
+  const globalTotalElementiva = document.getElementById('idiva');
+  const globalTotalElementbase = document.getElementById('idsumbase');
+
+  globalTotalElement.textContent = `$${globalTotal.toFixed(2)}`;
+  globalTotalElementiva.textContent = `$${totaliva.toFixed(2)}`;
+  globalTotalElementbase.textContent = `$${sumabase.toFixed(2)}`;
+}
+
+
+// Llamar a la función fetchOrdenes y luego renderizar las ordenes
+fetchOrdenes().then(ordenes => {
+  renderOrdenes(ordenes);
 });
+

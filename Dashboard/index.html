@@ -46,7 +46,7 @@
         <!--botones sidebar-->
         <button class="btn-sidebar" id="btnpos">
             <i class='bx bx-receipt'></i>
-            <span>Nueva factura</span>
+            <span>Productos</span>
         </button>
 
         <button class="btn-sidebar" id="btnhis">
@@ -145,68 +145,61 @@
                     <div class="product-container-scroll">
                         <div class="product-container" id="productContainer-ord">
                             <!-- Los productos se cargarán aquí dinamicamente -->
+
                         </div>
                     </div>
 
 
-                    <!--Tabla impuestos de ordenados -->
+                    <!--total yimpuestos de producto ordenados ordenados -->
                     <table class="table table-bordered mt-3">
-                        <thead>
-                            <tr>
-                                <th>Descripción</th>
-                                <th>Cantidad</th>
-                            </tr>
-                        </thead>
+
                         <tbody>
                             <tr>
                                 <td>Base</td>
-                                <td id="idsuntotal">0</td>
+                                <td id="idsumbase">0</td>
                             </tr>
                             <tr>
                                 <td>Iva</td>
-                                <td id="idiva">0</td>
+                                <td id="idiva">0.19</td>
                             </tr>
                             <tr>
                                 <td>Total</td>
-                                <td id="total">0</td>
+                                <td id="globalTotal">0</td>
                             </tr>
                         </tbody>
                     </table>
 
 
                     <!-- div para calcular pagos de facturar-->
-                    <div class="group">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Recibido: $</span>
-                            <input type="text" class="form-control" id="amountInput"
-                                aria-label="Amount (to the nearest dollar)">
-                            <button type="button" class="btn btn-outline-primary" id="openModalBtn">Continuar</button>
-                        </div>
-                    </div>
+
+                    <button type="button" class="btn btn-outline-primary w-100" id="openModalBtn">Facturar</button>
+
 
 
                     <!-- Vertically centered scrollable modal datos cliente y pagos -->
-                    <div class="modal fade" id="pagosModal" tabindex="-1" aria-labelledby="pagosModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="pagosModalLabel">Datos de Cliente y Pagos</h5>
+<div class="modal fade" id="pagosModal" tabindex="-1" aria-labelledby="pagosModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pagosModalLabel">Datos de Cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="clienteForm">
+                    <div class="mb-3">
+                        <label for="nombreCliente" class="form-label">Identificación del Cliente</label>
+                        <input type="text" class="form-control" id="iduCliente" placeholder="Identificación">
+                    </div>                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarDatosCliente()">Buscar cliente</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 

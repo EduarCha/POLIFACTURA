@@ -113,6 +113,14 @@
       "precio": "20000",
       "iva": "0",
       "categoriaId": "3"
+    },
+    {
+      "id": 1719905733012,
+      "nombre": "iejjrjijijqeoqjojowjowr",
+      "descripcion": "wirjisjksfiwji",
+      "precio": 77887,
+      "iva": 0,
+      "categoriaId": 1
     }
   ],
   "categorias": [
@@ -162,6 +170,56 @@
       "id": "9cc5",
       "nombre": "Arroz",
       "precio": "5000.00"
+    },
+    {
+      "id": "fec5",
+      "nombre": "Frijoles",
+      "precio": "6000.00"
+    },
+    {
+      "id": "5a5c",
+      "nombre": "Frijoles",
+      "precio": "6000.00"
+    },
+    {
+      "id": "04dd",
+      "nombre": "Frijoles",
+      "precio": "6000.00"
+    },
+    {
+      "id": "8f8f",
+      "nombre": "Leche",
+      "precio": "5000.00"
+    },
+    {
+      "id": "9307",
+      "nombre": "Leche",
+      "precio": "5000.00"
+    },
+    {
+      "id": "3257",
+      "nombre": "Aceite",
+      "precio": "8000.00"
+    },
+    {
+      "id": "ba00",
+      "nombre": "Arroz",
+      "precio": "5000.00"
+    },
+    {
+      "id": "2dd2",
+      "nombre": "Leche",
+      "precio": "5000.00"
+    },
+    {
+      "id": "8f93",
+      "nombre": "Leche",
+      "precio": "5000.00"
+    },
+    {
+      "id": "2132",
+      "nombre": "iejjrjijijqeoqjojowjowr",
+      "precio": "77887.00"
     }
   ],
   "clientes": [

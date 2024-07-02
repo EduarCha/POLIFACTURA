@@ -1,11 +1,6 @@
 // Validar pagos
 document.getElementById('openModalBtn').addEventListener('click', function () {
-    var amountInput = document.getElementById('amountInput').value;
-    if (amountInput.trim() === "") {
-        alert("Por favor, ingrese un monto.");
-    } else {
-        $('#pagosModal').modal('show');
-    }
+    $('#pagosModal').modal('show');
 });
 
 // Función para cargar productos y mostrarlos en el contenedor
