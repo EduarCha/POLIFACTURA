@@ -86,9 +86,17 @@
       "id": "1719816561132",
       "nombre": "Pasta",
       "descripcion": "500 gr",
-      "precio": 3500,
-      "iva": 19,
-      "categoriaId": 1
+      "precio": "3500",
+      "iva": "19",
+      "categoriaId": "3"
+    },
+    {
+      "id": 1719866528477,
+      "nombre": "Munutos",
+      "descripcion": "unidad",
+      "precio": 300,
+      "iva": 0,
+      "categoriaId": 2
     }
   ],
   "categorias": [
