@@ -27,94 +27,6 @@
       "categoriaId": "2"
     },
     {
-      "id": "1719806595294",
-      "nombre": "Aceite",
-      "descripcion": "500 ml",
-      "precio": 8000,
-      "iva": 19,
-      "categoriaId": 2
-    },
-    {
-      "id": "1719809747480",
-      "nombre": "Leche",
-      "descripcion": "1 litro",
-      "precio": 5000,
-      "iva": 19,
-      "categoriaId": 2
-    },
-    {
-      "id": "1719811278237",
-      "nombre": "Huevos",
-      "descripcion": "Docena",
-      "precio": 12000,
-      "iva": 19,
-      "categoriaId": 3
-    },
-    {
-      "id": "1719812296942",
-      "nombre": "Pollo negro",
-      "descripcion": "1 kg",
-      "precio": "15000",
-      "iva": "19",
-      "categoriaId": "1"
-    },
-    {
-      "id": "1719813389750",
-      "nombre": "Tomate",
-      "descripcion": "500 gr",
-      "precio": "3000",
-      "iva": "19",
-      "categoriaId": "2"
-    },
-    {
-      "id": "1719814225975",
-      "nombre": "Cebolla",
-      "descripcion": "500 gr",
-      "precio": "2500",
-      "iva": "19",
-      "categoriaId": "2"
-    },
-    {
-      "id": "1719815448223",
-      "nombre": "Pan",
-      "descripcion": "Unidad",
-      "precio": 1500,
-      "iva": 19,
-      "categoriaId": 1
-    },
-    {
-      "id": "1719816561132",
-      "nombre": "Pasta",
-      "descripcion": "500 gr",
-      "precio": "3500",
-      "iva": "19",
-      "categoriaId": "3"
-    },
-    {
-      "id": "1719866528477",
-      "nombre": "Munutos",
-      "descripcion": "unidad",
-      "precio": 300,
-      "iva": 0,
-      "categoriaId": 2
-    },
-    {
-      "id": "1719889541144",
-      "nombre": "huevos aa",
-      "descripcion": "x30 uni",
-      "precio": 40000,
-      "iva": 0,
-      "categoriaId": 1
-    },
-    {
-      "id": "ed5f",
-      "nombre": "arroz chino",
-      "descripcion": "400 gr",
-      "precio": "20000",
-      "iva": "0",
-      "categoriaId": "3"
-    },
-    {
       "id": "0457",
       "nombre": "arepas x1000",
       "descripcion": "paquete pos 1000",
@@ -140,38 +52,7 @@
       "descripcion": "Todos los productos de categoría 3"
     }
   ],
-  "ordenes": [
-    {
-      "id": "ab31",
-      "nombre": "Frijoles",
-      "precio": "0.00"
-    },
-    {
-      "id": "73bd",
-      "nombre": "Aceite",
-      "precio": "8000.00"
-    },
-    {
-      "id": "82b9",
-      "nombre": "Aceite",
-      "precio": "8000.00"
-    },
-    {
-      "id": "13c0",
-      "nombre": "Pollo negro",
-      "precio": "15000.00"
-    },
-    {
-      "id": "9e5c",
-      "nombre": "Frijoles",
-      "precio": "6000.00"
-    },
-    {
-      "id": "adfe",
-      "nombre": "huevos aa",
-      "precio": "40000.00"
-    }
-  ],
+  "ordenes": [],
   "clientes": [
     {
       "id": "1",
@@ -207,41 +88,18 @@
       "direccion": "Calle del Sol 321",
       "telefono": "555-5678",
       "email": "luis.fernandez@example.com"
+    },
+    {
+      "id": "1719964812478",
+      "nombre": "",
+      "direccion": "",
+      "telefono": "",
+      "email": ""
     }
   ],
   "facturas": [
     {
-      "id": "1",
-      "ordenId": 1,
-      "clienteId": 1,
-      "empresaId": "123456789-0",
-      "subtotal": 40000,
-      "iva": 7600,
-      "total": 47600,
-      "fecha": "2024-06-30"
-    },
-    {
-      "id": "2",
-      "ordenId": 2,
-      "clienteId": 2,
-      "empresaId": "123456789-0",
-      "subtotal": 15000,
-      "iva": 2850,
-      "total": 17850,
-      "fecha": "2024-06-30"
-    },
-    {
-      "id": "3",
-      "ordenId": 3,
-      "clienteId": 3,
-      "empresaId": "123456789-0",
-      "subtotal": 50000,
-      "iva": 9500,
-      "total": 59500,
-      "fecha": "2024-06-30"
-    },
-    {
-      "id": "4",
+      "id": "435445354",
       "ordenId": 4,
       "clienteId": 4,
       "empresaId": "123456789-0",
@@ -251,13 +109,83 @@
       "fecha": "2024-06-30"
     },
     {
-      "id": "5",
+      "id": "5454654354",
       "ordenId": 5,
       "clienteId": 5,
       "empresaId": "123456789-0",
       "subtotal": 25000,
       "iva": 4750,
       "total": 29750,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719964166118",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719964546644",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719964756557",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719964855214",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719964944041",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719965126216",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719965238532",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
       "fecha": "2024-06-30"
     }
   ]

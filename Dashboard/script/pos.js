@@ -106,23 +106,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const productContainer = document.getElementById('productContainer-ord');
     const clearOrderButton = document.getElementById('clear-order');
 
-    // Función para eliminar todas las órdenes
+    // Función para eliminar todas las órdenes y limpiar la interfaz
     function clearOrders() {
-        fetch('http://localhost:3000/ordenes', {
-            method: 'DELETE'
-        })
+        // Primero obtener todos los IDs de las órdenes
+        fetch('http://localhost:3000/ordenes')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('No se pudo borrar las órdenes');
+                    throw new Error('No se pudo obtener la lista de órdenes');
                 }
                 return response.json();
+            })
+            .then(ordenes => {
+                // Obtener los IDs de las órdenes
+                const ordenIds = ordenes.map(orden => orden.id);
+
+                // Eliminar cada orden por su ID
+                const deletePromises = ordenIds.map(id => {
+                    return fetch(`http://localhost:3000/ordenes/${id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`No se pudo borrar la orden con ID ${id}`);
+                        }
+                    });
+                });
+
+                // Esperar a que todas las eliminaciones se completen
+                return Promise.all(deletePromises);
             })
             .then(() => {
                 // Limpiar el contenedor de productos en la interfaz
                 productContainer.innerHTML = '';
                 console.log('Todas las órdenes han sido eliminadas.');
             })
-            .catch(error => console.error('Error al eliminar las órdenes:', error));
+            .catch(error => {
+                console.error('Error al eliminar las órdenes:', error);
+                // Manejar el error mostrando un mensaje al usuario o registrándolo de otra forma
+            });
     }
 
     // Añadir evento al botón de borrar órdenes

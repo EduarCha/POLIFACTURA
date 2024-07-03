@@ -510,8 +510,6 @@ fetchOrdenes().then(ordenes => {
 
 
 
-//datos de factura
-
 // Función para buscar y cargar datos del cliente desde db.json
 function buscarCliente() {
   const identificacion = document.getElementById('iduCliente').value.trim();
@@ -526,6 +524,7 @@ function buscarCliente() {
     })
     .then(clienteEncontrado => {
       const clienteHtml = `
+        <p><strong>Identificación:</strong> ${clienteEncontrado.id}</p>
         <p><strong>Nombre:</strong> ${clienteEncontrado.nombre}</p>
         <p><strong>Dirección:</strong> ${clienteEncontrado.direccion}</p>
         <p><strong>Teléfono:</strong> ${clienteEncontrado.telefono}</p>
@@ -580,6 +579,7 @@ function buscarCliente() {
       // Generar la tabla de suma de precios
       const sumaHtml = `
         <table class="table">
+        <br><h3>
           <thead>
             <tr>
               <th>Valor Base</th>
@@ -599,32 +599,147 @@ function buscarCliente() {
       document.getElementById('tablasuma').innerHTML = sumaHtml;
     })
     .catch(error => {
-      document.getElementById('clienteEncontrado').innerHTML = `<p>${error.message}</p>`;
+      if (error.message === 'Cliente no encontrado') {
+        const formularioNuevoClienteHtml = `
+          <h3>Nuevo Cliente</h3>
+          <form id="formNuevoCliente">
+            <div class="form-group">
+              <label for="nuevoNombre">Nombre:</label>
+              <input type="text" id="nuevoNombre" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="nuevaDireccion">Dirección:</label>
+              <input type="text" id="nuevaDireccion" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="nuevoTelefono">Teléfono:</label>
+              <input type="text" id="nuevoTelefono" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="nuevoEmail">Email:</label>
+              <input type="email" id="nuevoEmail" class="form-control" required>
+            </div>
+            <button type="button" class="btn btn-primary mt-1" id="guardarClienteBtn">Guardar Cliente</button>
+          </form>
+        `;
+        document.getElementById('clienteEncontrado').innerHTML = formularioNuevoClienteHtml;
+        // Event Listener para el botón "Guardar Cliente"
+        document.getElementById('guardarClienteBtn').addEventListener('click', guardarNuevoCliente);
+      } else {
+        document.getElementById('clienteEncontrado').innerHTML = `<p>${error.message}</p>`;
+      }
       document.getElementById('tablaOrdenes').innerHTML = '';
       document.getElementById('tablasuma').innerHTML = '';
     });
 }
 
-// Función para imprimir la factura
-function imprimirFactura() {
-  const contenidoModal = document.querySelector('.modal-content').innerHTML;
-  const ventanaImpresion = window.open('', '', 'height=600,width=800');
-  ventanaImpresion.document.write('<html><head><title>Factura</title>');
-  ventanaImpresion.document.write('</head><body >');
-  ventanaImpresion.document.write(contenidoModal);
-  ventanaImpresion.document.write('</body></html>');
-  ventanaImpresion.document.close();
-  ventanaImpresion.print();
+// Función para guardar el nuevo cliente
+function guardarNuevoCliente() {
+  const nuevoCliente = {
+    id: Date.now().toString(), // Usar timestamp como ID único
+    nombre: document.getElementById('nuevoNombre').value,
+    direccion: document.getElementById('nuevaDireccion').value,
+    telefono: document.getElementById('nuevoTelefono').value,
+    email: document.getElementById('nuevoEmail').value
+  };
 
-  // Obtener las órdenes relacionadas con el cliente
-  fetch(`http://localhost:3000/ordenes`, {
-    method: 'DELETE'
+  fetch('http://localhost:3000/clientes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(nuevoCliente)
   })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Error al borrar órdenes');
+        throw new Error('Error al guardar el nuevo cliente');
       }
-      console.log('Órdenes borradas correctamente');
+      return response.json();
+    })
+    .then(clienteGuardado => {
+      document.getElementById('clienteEncontrado').innerHTML = `<p>Cliente guardado exitosamente: ${clienteGuardado.nombre}</p>`;
+    })
+    .catch(error => {
+      document.getElementById('clienteEncontrado').innerHTML = `<p>${error.message}</p>`;
+    });
+}
+
+// Función para insertar una nueva factura
+function insertarFactura(datosFactura) {
+  fetch('http://localhost:3000/facturas', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(datosFactura)
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al insertar la factura');
+      }
+      return response.json();
+    })
+    .then(nuevaFactura => {
+      console.log('Factura insertada correctamente:', nuevaFactura);
+    })
+    .catch(error => {
+      console.error('Error al insertar la factura:', error);
+      // Manejar el error mostrando un mensaje al usuario o registrándolo de otra forma
+    });
+}
+
+// Función para imprimir la factura y luego eliminar las órdenes una por una
+function imprimirFactura() {
+  // Selecciona solo el contenido del cuerpo del modal
+  const modalBodyContent = document.querySelector('.modal-body').innerHTML;
+  const printWindow = window.open('', '', 'height=600,width=800');
+  printWindow.document.write('<html><head><title>Factura</title>');
+  printWindow.document.write('</head><body>');
+  printWindow.document.write(modalBodyContent);
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.print();
+
+  // Aquí deberías definir los datos de la factura según tu lógica
+  const datosFactura = {
+    id: Date.now().toString(), // Genera un ID único para la factura
+    ordenId: 1, // Ejemplo de ID de la orden asociada a la factura (debes ajustar esto según tu lógica)
+    clienteId: 1, // Ejemplo de ID del cliente asociado a la factura (debes ajustar esto según tu lógica)
+    empresaId: '123456789-0', // ID de la empresa (ejemplo)
+    subtotal: 40000, // Ejemplo de subtotal (debes ajustar esto según tu lógica)
+    iva: 7600, // Ejemplo de valor de IVA (debes ajustar esto según tu lógica)
+    total: 47600, // Ejemplo de total (debes ajustar esto según tu lógica)
+    fecha: '2024-06-30' // Ejemplo de fecha (debes ajustar esto según tu lógica)
+  };
+
+  // Insertar la factura antes de eliminar las órdenes
+  insertarFactura(datosFactura);
+
+  // Después de imprimir la factura, obtener y eliminar las órdenes una por una
+  fetch('http://localhost:3000/ordenes')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al obtener las órdenes');
+      }
+      return response.json();
+    })
+    .then(ordenes => {
+      const deletePromises = ordenes.map(orden => {
+        return fetch(`http://localhost:3000/ordenes/${orden.id}`, {
+          method: 'DELETE'
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Error al borrar la orden con ID ${orden.id}`);
+            }
+          });
+      });
+
+      // Esperar a que todas las eliminaciones se completen
+      return Promise.all(deletePromises);
+    })
+    .then(() => {
+      console.log('Todas las órdenes fueron borradas correctamente');
     })
     .catch(error => {
       console.error('Error:', error);
@@ -632,8 +747,56 @@ function imprimirFactura() {
 }
 
 
+// Event Listener para el botón "Imprimir Factura"
+document.getElementById('imprimirFacturaBtn').addEventListener('click', imprimirFactura);
+
 // Event Listener para el botón "Buscar Cliente"
 document.getElementById('buscarClienteBtn').addEventListener('click', buscarCliente);
 
-// Event Listener para el botón "Imprimir Factura"
-document.getElementById('imprimirFacturaBtn').addEventListener('click', imprimirFactura);
+document.getElementById('guardarClienteBtn').addEventListener('click', guardarNuevoCliente);
+
+// Función para cargar y mostrar las facturas desde el archivo JSON
+function cargarFacturas() {
+  fetch('http://localhost:3000/facturas') // Cambiar la URL según tu configuración
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('No se pudo cargar las facturas');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Obtener el contenedor donde se cargarán las tarjetas de facturas
+      const facturasContainer = document.getElementById('facturasContainer');
+
+      // Iterar sobre cada factura en los datos obtenidos
+      data.forEach(factura => {
+        // Crear la tarjeta HTML para cada factura
+        const cardHtml = `
+                  <div class="shadow p-3 mb-3 rounded p-2 bg-body-tertiary bg-opacity-75">
+                      <div class="row p-1">
+                          <div class="col border-bottom">Factura No ${factura.id}</div>
+                          <div class="col border-bottom">Cliente ID ${factura.clienteId}</div>
+                          <div class="col border-bottom">IVA ${factura.iva}%</div>
+                          <div class="col border-bottom">Valor $${factura.total.toFixed(2)}</div>
+                      </div>
+                      <div class="row p-1">
+                          <div class="col">Fecha ${factura.fecha}</div>
+                          <div class="col"><button type="button" class="btn btn-danger">Anular factura</button></div>
+                          <div class="col"><button type="button" class="btn btn-warning">Detalle de factura</button></div>
+                          <div class="col"><button type="button" class="btn btn-success">Enviar al correo</button></div>
+                      </div>
+                  </div>
+              `;
+
+        // Agregar la tarjeta HTML al contenedor
+        facturasContainer.innerHTML += cardHtml;
+      });
+    })
+    .catch(error => {
+      console.error('Error al cargar las facturas:', error);
+      // Manejar el error mostrando un mensaje al usuario o registrándolo de otra forma
+    });
+}
+
+// Llamar a la función para cargar las facturas al cargar la página
+document.addEventListener('DOMContentLoaded', cargarFacturas);
