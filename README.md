@@ -13,7 +13,7 @@ Pasos para Pruebas Frontend
 
 5. Registro y autenticación. El registro y la autenticación se realizan a través de Firebase, que puede ser modificado si se prefiere.
 
-6. Las ablas en JSON para pruebas frontend. Copie el siguiente código para iniciar el servidor y utilice npx para ejecutarlo desde la terminal de Visual Studio Code. En Windows, use Ctrl + Ñ para abrir la terminal y luego vuelva a la pagina web y use Ctrl + R para refrescar la página y cargar los productos, que pueden ser modificados desde los ajustes.
+6. Las tablas en JSON para pruebas frontend. Copie el siguiente código para iniciar el servidor y utilice npx para ejecutarlo desde la terminal de Visual Studio Code. En Windows, use Ctrl + Ñ para abrir la terminal y luego vuelva a la pagina web y use Ctrl + R para refrescar la página y cargar los productos, que pueden ser modificados desde los ajustes del menu de la pagina.
 
 
 Copiar código para iniciar el servidor 
