@@ -33,6 +33,22 @@
       "precio": "5395",
       "iva": "19",
       "categoriaId": "3"
+    },
+    {
+      "id": "6162",
+      "nombre": "lentejas",
+      "descripcion": "400 gr",
+      "precio": 3000,
+      "iva": 5,
+      "categoriaId": 1
+    },
+    {
+      "id": "1f6e",
+      "nombre": "tomate",
+      "descripcion": "500gr\n",
+      "precio": "7000",
+      "iva": "5",
+      "categoriaId": "1"
     }
   ],
   "categorias": [
@@ -52,7 +68,18 @@
       "descripcion": "Todos los productos de categoría 3"
     }
   ],
-  "ordenes": [],
+  "ordenes": [
+    {
+      "id": "b445",
+      "nombre": "Frijoles",
+      "precio": "6000.00"
+    },
+    {
+      "id": "2979",
+      "nombre": "tomate",
+      "precio": "7000.00"
+    }
+  ],
   "clientes": [
     {
       "id": "1",
@@ -91,6 +118,13 @@
     },
     {
       "id": "1719964812478",
+      "nombre": "",
+      "direccion": "",
+      "telefono": "",
+      "email": ""
+    },
+    {
+      "id": "1720090710838",
       "nombre": "",
       "direccion": "",
       "telefono": "",
@@ -180,6 +214,46 @@
     },
     {
       "id": "1719965238532",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719966009262",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1719969765468",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1720090849532",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1720090887278",
       "ordenId": 1,
       "clienteId": 1,
       "empresaId": "123456789-0",
