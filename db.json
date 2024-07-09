@@ -49,6 +49,14 @@
       "precio": "7000",
       "iva": "5",
       "categoriaId": "1"
+    },
+    {
+      "id": "dabd",
+      "nombre": "pilas aaa",
+      "descripcion": "xo 12",
+      "precio": 15000,
+      "iva": 19,
+      "categoriaId": 2
     }
   ],
   "categorias": [
@@ -68,18 +76,7 @@
       "descripcion": "Todos los productos de categoría 3"
     }
   ],
-  "ordenes": [
-    {
-      "id": "b445",
-      "nombre": "Frijoles",
-      "precio": "6000.00"
-    },
-    {
-      "id": "2979",
-      "nombre": "tomate",
-      "precio": "7000.00"
-    }
-  ],
+  "ordenes": [],
   "clientes": [
     {
       "id": "1",

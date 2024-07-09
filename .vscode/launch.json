@@ -13,11 +13,6 @@
             "webRoot": "${workspaceFolder}"
         },
 
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open registro.html",
-            "file": "c:\\AppServ\\www\\web_parreno\\registro.html"
-        }
+      
     ]
 }

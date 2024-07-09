@@ -43,7 +43,7 @@ fetch(urlProductos)
                     const nombre = btn.getAttribute('data-nombre');
                     const precio = parseFloat(btn.getAttribute('data-precio'));
                     alertProductoAgregado(nombre, precio);
-                    agregarProductoAOrden({ nombre, precio });
+                    
                 });
             });
         }
@@ -75,7 +75,19 @@ fetch(urlProductos)
             beepSound.play();
 
             // Mostrar la alerta con el nombre y el precio del producto
-            alert(`Producto agregado: ${nombre}\nPrecio del producto: $ ${precio}`);
+            //alert(`Producto agregado: ${nombre}\nPrecio del producto: $ ${precio}`)
+            // Capturar el input opcional
+            let inputOpcional = prompt('Ingrese S/N (opcional): ');
+
+            if (inputOpcional === null) {
+                alert("CANCELAR?");
+            } else if (inputOpcional.trim() === '') {
+                agregarProductoAOrden({ nombre, precio });
+            } else {
+                alert("Ingresó número serial: " + inputOpcional);
+            }
+
+        
         }
 
         function agregarProductoAOrden(producto) {
@@ -125,11 +137,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     return fetch(`http://localhost:3000/ordenes/${id}`, {
                         method: 'DELETE'
                     })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`No se pudo borrar la orden con ID ${id}`);
-                        }
-                    });
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`No se pudo borrar la orden con ID ${id}`);
+                            }
+                        });
                 });
 
                 // Esperar a que todas las eliminaciones se completen
