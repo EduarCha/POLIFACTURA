@@ -57,6 +57,14 @@
       "precio": 15000,
       "iva": 19,
       "categoriaId": 2
+    },
+    {
+      "id": "b883",
+      "nombre": "arroz",
+      "descripcion": "ghg",
+      "precio": 245667,
+      "iva": 0,
+      "categoriaId": 1
     }
   ],
   "categorias": [
@@ -251,6 +259,26 @@
     },
     {
       "id": "1720090887278",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1731274011929",
+      "ordenId": 1,
+      "clienteId": 1,
+      "empresaId": "123456789-0",
+      "subtotal": 40000,
+      "iva": 7600,
+      "total": 47600,
+      "fecha": "2024-06-30"
+    },
+    {
+      "id": "1731274056990",
       "ordenId": 1,
       "clienteId": 1,
       "empresaId": "123456789-0",
